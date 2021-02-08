@@ -1,6 +1,6 @@
 ---
 title: Machine virtuelle pré-configurée
-weight: 1
+weight: 2
 ---
 
 
