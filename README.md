@@ -7,6 +7,7 @@ First, you need to install [hugo](https://gohugo.io/)
 
 To deploy the website locally, run on the root folder:
 
+
 ```
 hugo server
 ```
