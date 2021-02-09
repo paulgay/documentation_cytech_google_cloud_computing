@@ -3,6 +3,7 @@
 Ce repo contient une documentation en français sur l'utilisation des machines GCP à destination des étudiants de l'école Cy-tech
 
 It is written as a static website with the hugo website and the geekdoc theme.
+First, you need to install [hugo](https://gohugo.io/)
 
 To deploy the website locally, run on the root folder:
 
