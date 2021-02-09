@@ -2,15 +2,15 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>tensorflow and Jupyter in Docker on Usage de Google Cloud Computing</title>
-    <link>http://localhost/docker/</link>
+    <link>https://paulgay.github.io/documentation_cytech_google_cloud_computing/docker/</link>
     <description>Recent content in tensorflow and Jupyter in Docker on Usage de Google Cloud Computing</description>
-    <generator>Hugo -- gohugo.io</generator><atom:link href="http://localhost/docker/index.xml" rel="self" type="application/rss+xml" />
+    <generator>Hugo -- gohugo.io</generator><atom:link href="https://paulgay.github.io/documentation_cytech_google_cloud_computing/docker/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Running docker on tensorflow</title>
-      <link>http://localhost/docker/docker/</link>
+      <link>https://paulgay.github.io/documentation_cytech_google_cloud_computing/docker/docker/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost/docker/docker/</guid>
+      <guid>https://paulgay.github.io/documentation_cytech_google_cloud_computing/docker/docker/</guid>
       <description>Étant donné l&amp;rsquo;usage actuel universel de docker, c&amp;rsquo;est probablement une bonne idée de prendre du temps pour effectuer cette installation.
 Vous devez avoir au préablable créé votre VM.  A few lines to explain how docker is working Installez docker sur votre VM
 Installation de l&amp;rsquo;image Installation des drivers nvidia: Récupérer la dernière version sur le site de nvidia

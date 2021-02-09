@@ -2,8 +2,8 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Categories on Usage de Google Cloud Computing</title>
-    <link>http://localhost/categories/</link>
+    <link>https://paulgay.github.io/documentation_cytech_google_cloud_computing/categories/</link>
     <description>Recent content in Categories on Usage de Google Cloud Computing</description>
-    <generator>Hugo -- gohugo.io</generator><atom:link href="http://localhost/categories/index.xml" rel="self" type="application/rss+xml" />
+    <generator>Hugo -- gohugo.io</generator><atom:link href="https://paulgay.github.io/documentation_cytech_google_cloud_computing/categories/index.xml" rel="self" type="application/rss+xml" />
   </channel>
 </rss>

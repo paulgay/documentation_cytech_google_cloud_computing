@@ -2,15 +2,15 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Usage de Google Cloud Computing</title>
-    <link>http://localhost/</link>
+    <link>https://paulgay.github.io/documentation_cytech_google_cloud_computing/</link>
     <description>Recent content on Usage de Google Cloud Computing</description>
-    <generator>Hugo -- gohugo.io</generator><atom:link href="http://localhost/index.xml" rel="self" type="application/rss+xml" />
+    <generator>Hugo -- gohugo.io</generator><atom:link href="https://paulgay.github.io/documentation_cytech_google_cloud_computing/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Installation de tensorflow</title>
-      <link>http://localhost/manual_configuration/tensorflow/</link>
+      <link>https://paulgay.github.io/documentation_cytech_google_cloud_computing/manual_configuration/tensorflow/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost/manual_configuration/tensorflow/</guid>
+      <guid>https://paulgay.github.io/documentation_cytech_google_cloud_computing/manual_configuration/tensorflow/</guid>
       <description>Commençons par la librairie Cuda qui permettra à Tensorflow d&amp;rsquo;utiliser le GPU.
 installation de Cuda Clikez sur le bouton ssh afin d&amp;rsquo;ouvrir un terminal sur votre machine virtuelle.
 Sélectionner un mode de téléchargement sur le site de cuda. A l&amp;rsquo;heure actuelle, tensorflow a été compilé avec la version 11.0 de cuda. Nous choisirons donc cette version.
@@ -20,10 +20,10 @@ sudo apt udpate wget https://developer.download.nvidia.com/compute/cuda/repos/ub
     
     <item>
       <title>Transfert de fichiers</title>
-      <link>http://localhost/utilisation/transfert_fichier/</link>
+      <link>https://paulgay.github.io/documentation_cytech_google_cloud_computing/utilisation/transfert_fichier/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost/utilisation/transfert_fichier/</guid>
+      <guid>https://paulgay.github.io/documentation_cytech_google_cloud_computing/utilisation/transfert_fichier/</guid>
       <description>connection en ssh Uploadez des fichiers sur sa machine locale  Par ssh   Ajout de la clé publique SUR VOTRE MACHINE PERSONNELLE : * copier l&amp;rsquo;intégralité du fichier ~/.ssh/id_rsa.pub (le créer avec la commande ssh-keygen s&amp;rsquo;il n&amp;rsquo;existe pas) * le coller SUR LA MACHINE GCP dans le fichier ~/.ssh/authori
   Ensuite, pour copier MON_FICHIER de la machine locale vers la VM scp /chemin/vers/MON_FICHIER login@address_ip_externe:/chemin/sur/la/VM
   buckets </description>
@@ -31,10 +31,10 @@ sudo apt udpate wget https://developer.download.nvidia.com/compute/cuda/repos/ub
     
     <item>
       <title>Jupyter notebook</title>
-      <link>http://localhost/manual_configuration/jupyter/</link>
+      <link>https://paulgay.github.io/documentation_cytech_google_cloud_computing/manual_configuration/jupyter/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost/manual_configuration/jupyter/</guid>
+      <guid>https://paulgay.github.io/documentation_cytech_google_cloud_computing/manual_configuration/jupyter/</guid>
       <description>Jupyter notebook : option1 : tunnel ssh Il existe plusieurs manières, nous décrivons ici l&amp;rsquo;utilisation d&amp;rsquo;un tunnel ssh:
 Ajout de la clé publique. Il faut d&amp;rsquo;abord configurer votre serveur pour qu&amp;rsquo;il accepte des connections venant de votre ordinateur. Pour cela, copiez votre clé publique sur le serveur
  Dans &amp;ldquo;Compute Engine -&amp;gt; Instance de VM -&amp;gt; Métadonnées&amp;rdquo; Séléctionnez l&amp;rsquo;onglet &amp;ldquo;Clés SSH&amp;rdquo; puis le bouton &amp;ldquo;Modifier&amp;rdquo;    Copiez l&amp;rsquo;intégralité du fichier ~/.</description>
@@ -42,10 +42,10 @@ Ajout de la clé publique. Il faut d&amp;rsquo;abord configurer votre serveur po
     
     <item>
       <title>Running docker on tensorflow</title>
-      <link>http://localhost/docker/docker/</link>
+      <link>https://paulgay.github.io/documentation_cytech_google_cloud_computing/docker/docker/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost/docker/docker/</guid>
+      <guid>https://paulgay.github.io/documentation_cytech_google_cloud_computing/docker/docker/</guid>
       <description>Étant donné l&amp;rsquo;usage actuel universel de docker, c&amp;rsquo;est probablement une bonne idée de prendre du temps pour effectuer cette installation.
 Vous devez avoir au préablable créé votre VM.  A few lines to explain how docker is working Installez docker sur votre VM
 Installation de l&amp;rsquo;image Installation des drivers nvidia: Récupérer la dernière version sur le site de nvidia
@@ -54,10 +54,10 @@ sudo apt-get install ubuntu-drivers-common ubuntu-drivers devices  == /sys/devic
     
     <item>
       <title>VM creation</title>
-      <link>http://localhost/manual_configuration/vm_creation/</link>
+      <link>https://paulgay.github.io/documentation_cytech_google_cloud_computing/manual_configuration/vm_creation/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost/manual_configuration/vm_creation/</guid>
+      <guid>https://paulgay.github.io/documentation_cytech_google_cloud_computing/manual_configuration/vm_creation/</guid>
       <description>Dans cette partie, nous allons installé une machine google cloud
 Créer l&amp;rsquo;instance du serveur Google Cloud Création de la VM  Compute engine =&amp;gt; instance VM =&amp;gt; Créer Région : Europe-west1 (Belgique) Zone : europe-west1-b Config de machine =&amp;gt; Série : N1 Type de machine : n1-standard-8 (30go)  Dans la liste déroulange &amp;ldquo;Plate-forme du processeur et GPU&amp;rdquo;
   Ajouter un GPU : NVIDIA Tesla K80
