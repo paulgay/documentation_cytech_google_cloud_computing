@@ -15,7 +15,7 @@ jobs:
           fetch-depth: 0    # Fetch all history for .GitInfo and .Lastmod
 
       - name: Setup Hugo
-        uses: peaceiris/actions-hugo@latest
+        uses: paulgay/documentation_cytech_google_cloud_computing 
         with:
           hugo-version: 'latest'
           # extended: true
@@ -24,12 +24,12 @@ jobs:
         run: hugo --minify
 
       - name: Deploy
-        uses: peaceiris/actions-gh-pages@latest
+        uses: paulgay/documentation_cytech_google_cloud_computing
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./public
 
 - name: Setup Hugo
-  uses: peaceiris/actions-hugo@latest
+  uses: paulgay/actions-hugo@latest
   with:
     hugo-version: 'latest'
