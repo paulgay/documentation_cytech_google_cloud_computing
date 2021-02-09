@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  
+  <url>
+    <loc>http://localhost/manual_configuration/tensorflow/</loc>
+  </url>
+  
+  <url>
+    <loc>http://localhost/docker/</loc>
+  </url>
+  
+  <url>
+    <loc>http://localhost/utilisation/transfert_fichier/</loc>
+  </url>
+  
+  <url>
+    <loc>http://localhost/manual_configuration/jupyter/</loc>
+  </url>
+  
+  <url>
+    <loc>http://localhost/pre_configured_vm/</loc>
+  </url>
+  
+  <url>
+    <loc>http://localhost/utilisation/</loc>
+  </url>
+  
+  <url>
+    <loc>http://localhost/troubleshooting/</loc>
+  </url>
+  
+  <url>
+    <loc>http://localhost/categories/</loc>
+  </url>
+  
+  <url>
+    <loc>http://localhost/manual_configuration/</loc>
+  </url>
+  
+  <url>
+    <loc>http://localhost/docker/docker/</loc>
+  </url>
+  
+  <url>
+    <loc>http://localhost/tags/</loc>
+  </url>
+  
+  <url>
+    <loc>http://localhost/</loc>
+  </url>
+  
+  <url>
+    <loc>http://localhost/manual_configuration/vm_creation/</loc>
+  </url>
+  
+</urlset>
