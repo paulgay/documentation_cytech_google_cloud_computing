@@ -11,3 +11,5 @@ Pour un déploiement en local sur votre machine, utilisez la commande:
 hugo server
 ```
 [Déploiement public](https://gohugo.io/hosting-and-deployment/) : Il est possible de déployer ce site sur les pages github (projet ou page personnelle). Un déploiement sur gitlab semble encore plus facile. 
+
+N'hésitez pas à ouvrir une issue si vous rencontrez des difficultés lors de l'installation de votre VM ou pour suggérer l'écriture de nouvelles sections.
