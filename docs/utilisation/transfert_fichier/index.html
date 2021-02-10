@@ -426,18 +426,30 @@
 
 
 <div class="gdoc-page__anchorwrap"><h2 id="connection-en-ssh">connection en ssh<a data-clipboard-text="https://paulgay.github.io/documentation_cytech_google_cloud_computing/utilisation/transfert_fichier/#connection-en-ssh" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor connection en ssh" href="#connection-en-ssh"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h2></div>
-<div class="gdoc-page__anchorwrap"><h2 id="uploadez-des-fichiers-sur-sa-machine-locale">Uploadez des fichiers sur sa machine locale <a data-clipboard-text="https://paulgay.github.io/documentation_cytech_google_cloud_computing/utilisation/transfert_fichier/#uploadez-des-fichiers-sur-sa-machine-locale" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Uploadez des fichiers sur sa machine locale " href="#uploadez-des-fichiers-sur-sa-machine-locale"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h2></div>
-<div class="gdoc-page__anchorwrap"><h3 id="par-ssh">Par ssh<a data-clipboard-text="https://paulgay.github.io/documentation_cytech_google_cloud_computing/utilisation/transfert_fichier/#par-ssh" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Par ssh" href="#par-ssh"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h3></div>
+<p>Vous pouvez cliquez sur le bouton ssh afin d&rsquo;ouvrir un terminal sur votre VM</p>
+<img src="https://paulgay.github.io/documentation_cytech_google_cloud_computing/ssh.png" width="900"/>
+<p>Cependant, il est parfois nécessaire de lancer vos propres commandes depuis votre machine, par exemple pour créer des tunnels afin de copier des fichiers.</p>
+<p>Dans ce cas, il faut ajouter votre clé publique qui est sur votre machine personnelle dans le fichier <code>authorized_keys</code> de votre VM.</p>
+<p>Il faut d&rsquo;abord configurer votre serveur pour qu&rsquo;il accepte des connections venant de votre ordinateur. Pour cela, copiez votre clé publique sur le serveur</p>
 <ul>
-<li>
-<p>Ajout de la clé publique SUR VOTRE MACHINE PERSONNELLE : 
-    * copier l&rsquo;intégralité du fichier <code>~/.ssh/id_rsa.pub</code> (le créer avec la commande <code>ssh-keygen</code> s&rsquo;il n&rsquo;existe pas)
-    * le coller SUR LA MACHINE GCP dans le fichier ~/.ssh/authori</p>
-</li>
+<li>Dans &ldquo;Compute Engine -&gt; Instance de VM -&gt; Métadonnées&rdquo;</li>
+<li>Séléctionnez l&rsquo;onglet &ldquo;Clés SSH&rdquo; puis le bouton &ldquo;Modifier&rdquo;</li>
+</ul>
+<center>
+<img src="/add_public_key.png" alt="drawing" width="900"/>
+</center>
+<p>Copiez l&rsquo;intégralité du fichier présent sur votre machine avec pour chemin <code>~/.ssh/id_rsa.pub</code>
+Si ce fichier n&rsquo;existe pas sur votre machine, vous pouvez le générer avec la commande <code>ssh-keygen</code></p>
+<ul>
 <li>
 <p>Ensuite, pour copier MON_FICHIER de la machine locale vers la VM <code>scp /chemin/vers/MON_FICHIER  login@address_ip_externe:/chemin/sur/la/VM</code></p>
 </li>
+<li>
+<p>Vérifiez que votre clé publique est bien présente sur la VM dans le fichier <code>~/.ssh/authorized_keys</code></p>
+</li>
 </ul>
+<div class="gdoc-page__anchorwrap"><h2 id="uploadez-des-fichiers-sur-sa-machine-locale">Uploadez des fichiers sur sa machine locale <a data-clipboard-text="https://paulgay.github.io/documentation_cytech_google_cloud_computing/utilisation/transfert_fichier/#uploadez-des-fichiers-sur-sa-machine-locale" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Uploadez des fichiers sur sa machine locale " href="#uploadez-des-fichiers-sur-sa-machine-locale"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h2></div>
+<div class="gdoc-page__anchorwrap"><h3 id="par-ssh">Par ssh<a data-clipboard-text="https://paulgay.github.io/documentation_cytech_google_cloud_computing/utilisation/transfert_fichier/#par-ssh" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Par ssh" href="#par-ssh"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h3></div>
 <div class="gdoc-page__anchorwrap"><h2 id="buckets">buckets<a data-clipboard-text="https://paulgay.github.io/documentation_cytech_google_cloud_computing/utilisation/transfert_fichier/#buckets" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor buckets" href="#buckets"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h2></div>
 
 

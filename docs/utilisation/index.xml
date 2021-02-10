@@ -11,9 +11,10 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://paulgay.github.io/documentation_cytech_google_cloud_computing/utilisation/transfert_fichier/</guid>
-      <description>connection en ssh Uploadez des fichiers sur sa machine locale  Par ssh   Ajout de la clé publique SUR VOTRE MACHINE PERSONNELLE : * copier l&amp;rsquo;intégralité du fichier ~/.ssh/id_rsa.pub (le créer avec la commande ssh-keygen s&amp;rsquo;il n&amp;rsquo;existe pas) * le coller SUR LA MACHINE GCP dans le fichier ~/.ssh/authori
-  Ensuite, pour copier MON_FICHIER de la machine locale vers la VM scp /chemin/vers/MON_FICHIER login@address_ip_externe:/chemin/sur/la/VM
-  buckets </description>
+      <description>connection en ssh Vous pouvez cliquez sur le bouton ssh afin d&amp;rsquo;ouvrir un terminal sur votre VM
+Cependant, il est parfois nécessaire de lancer vos propres commandes depuis votre machine, par exemple pour créer des tunnels afin de copier des fichiers.
+Dans ce cas, il faut ajouter votre clé publique qui est sur votre machine personnelle dans le fichier authorized_keys de votre VM.
+Il faut d&amp;rsquo;abord configurer votre serveur pour qu&amp;rsquo;il accepte des connections venant de votre ordinateur.</description>
     </item>
     
   </channel>
