@@ -13,7 +13,7 @@ Sélectionner un mode de téléchargement sur le site de [cuda](https://develope
 A l'heure actuelle, tensorflow a été compilé avec la version 11.0 de cuda. Nous choisirons donc cette version.
 
 <center>
-<img src="/cuda.png" alt="drawing" width="900"/>
+<img src="../../cuda.png" alt="drawing" width="900"/>
 </center>
 
 
@@ -41,11 +41,7 @@ Puis exécutez la commande suivante:
 source .bashrc
 ```
 
-Ensuite, installez [cudnn](https://developer.nvidia.com/rdp/cudnn-archive). Il vous sera demandé de créer un compte. 
-Une alternative est de le télécharger directement à partir de ce lien (ATTENTION, cette version n'est pas mise à jour): 
-```
-wget put the link
-```
+Ensuite, installez [cudnn](https://developer.nvidia.com/rdp/cudnn-archive). Il vous sera demandé de créer un compte. Vous pourrez ensuite télécharger les fichiers `.deb` et utiliser la commande `dpkg` pour les installer.
 ```
 sudo dpkg -i libcudnn8_8.0.5.39-1+cuda11.0_amd64.deb
 sudo dpkg -i libcudnn8-dev_8.0.5.39-1+cuda11.0_amd64.deb
@@ -91,7 +87,8 @@ wget https://repo.anaconda.com/archive/Anaconda3-2020.11-Linux-x86_64.sh
 ``` 
 
 * `bash Anaconda3-5.1.0-Linux-x86_64.sh`
-Il est ok d'utiliser les défauts et d'accepter l'initialisation
+
+utilisez les défauts et accepter l'initialisation
 ```
 Do you wish the installer to initialize Anaconda3
 by running conda init? [yes|no]
@@ -109,6 +106,6 @@ import tensorflow as tf
 physical_devices = tf.config.list_physical_devices('GPU')
 ```
 
-    Put the result of the command
+    [PhysicalDevice(name='/physical_device:GPU:0', device_type='GPU')]
 
 

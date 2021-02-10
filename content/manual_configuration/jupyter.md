@@ -3,9 +3,10 @@ title: Jupyter notebook
 weight: 2
 ---
 
+Vous pouvez au choix configurez l'adresse IP et les parefeux de votre VM ou utliser un tunnel ssh.
+
 ## Jupyter notebook : option1 : tunnel ssh
 
-Il existe plusieurs manières, nous décrivons ici l'utilisation d'un tunnel ssh:
 
 ### Ajout de la clé publique. 
 
@@ -24,13 +25,14 @@ Si le fichier n'existe pas, vous pouvez le générer avec la commande `ssh-keyge
 
 À présent, ouvrez un tunnel ssh connectant votre machine à votre VM.
 ```
-ssh -X -L 8099:localhost:8099 pandregay@adresse_ip_externe
+ssh -X -L 8888:localhost:8888 pandregay@adresse_ip_externe
 ```
+Notez que le port doit correspondre à celui sur lequel votre Jupyter tourne.
 
-Depuis la VM, lancez votre jupyter:
+Depuis la VM, lancez votre jupyter (si vous ne l'avez pas déjà fait par le biais de votre image docker):
 
 ```
-jupyter-notebook --no-browser --port=8099
+jupyter-notebook --no-browser --port=8888
 ```
     ...
     To access the notebook, open this file in a browser:
@@ -49,7 +51,7 @@ dans votre navigateur.
 L'url que vous entrez dans le navigateur doit avoir la forme : `http://adresse_ip_externe:8889/?token=votre_token`
 
 
-## Jupyter noteboook option2 : configuration des pare-feu et addresse IP static
+## Jupyter noteboook option2 : configuration des pare-feu et addresse IP statique
 
 ## Configuration des firewalls pour Jupyter
 
@@ -80,7 +82,7 @@ Dans [pare-feu](https://console.cloud.google.com/networking/firewalls) 
 
 ## installation de jupyter sur la VM
 
-* `jupyter notebook --ip=0.0.0.0 --port=8889 --no-browser &`
+* `jupyter notebook --ip=0.0.0.0 --port=8888 --no-browser &`
 
 
 Accéder au Jupyter :

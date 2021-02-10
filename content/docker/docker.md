@@ -68,10 +68,14 @@ sudo apt install git
 git clone https://github.com/tensorflow/tensorflow.git
 cd tensorflow/tensorflow/tools/dockerfiles/
 sudo docker build -f ./dockerfiles/gpu-jupyter.Dockerfile -t tf .
+```
+La dernière ligne est la commande qui construit votre image sous le nom de `tf`. Pour lancer le notebook
+```
 sudo docker run -it --gpus all  --rm -v $(realpath ~/notebooks):/tf/notebooks -p 8888:8888 tf:latest
 ``` 
 À présent, votre jupyter est lancé sur le port 8888 et l'adresse `localhost` de la VM. 
 
+Consultez [cette section](../../manual_configuration/jupyter/) pour accéder au jupyter de votre VM.
 
 {{< hint info >}}
 Vous pouvez aussi télécharger directement à partir de la commande `run`. L'avantage de passer par le fichier `.Dockerfile` est que vous pouvez l'adapter pour y ajouter d'autres librairies dont vous pourriez avoir besoin.
@@ -80,9 +84,12 @@ sudo docker run -it --gpus all  --rm -v $(realpath ~/notebooks):/tf/notebooks -p
 ```
 {{< /hint >}}
 
+
+
 ### Ajout de modules supplémentaires
 
-L'image docker et les libraires qu'elle contient sont entièrement spécifiés dans les fichiers *.Dockerfile.
+L'image docker et les libraires qu'elle contient sont spécifiées dans les fichiers *.Dockerfile.
 
 Il est indiqué dans le README du github de tensorflow qu'il n'est pas conseillé de modifier directement ces fichiers Dockerfile. 
 Il est proposé à la place de modifier un ficher de configuration et d'utiliser un script python pour générer les fichiers Dockerfile.
+

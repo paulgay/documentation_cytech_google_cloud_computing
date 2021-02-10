@@ -8,7 +8,7 @@ Dans cette partie, nous allons installé une machine google cloud
 
 ## Création de la VM
 
-<img src="https://paulgay.github.io/documentation_cytech_google_cloud_computing/instance.png" width="900"/>
+<img src="../../instance.png" width="900"/>
 
 
 

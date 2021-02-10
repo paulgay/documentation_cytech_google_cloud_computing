@@ -425,8 +425,8 @@
     
 
 
+<p>Vous pouvez au choix configurez l&rsquo;adresse IP et les parefeux de votre VM ou utliser un tunnel ssh.</p>
 <div class="gdoc-page__anchorwrap"><h2 id="jupyter-notebook--option1--tunnel-ssh">Jupyter notebook : option1 : tunnel ssh<a data-clipboard-text="https://paulgay.github.io/documentation_cytech_google_cloud_computing/manual_configuration/jupyter/#jupyter-notebook--option1--tunnel-ssh" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Jupyter notebook : option1 : tunnel ssh" href="#jupyter-notebook--option1--tunnel-ssh"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h2></div>
-<p>Il existe plusieurs manières, nous décrivons ici l&rsquo;utilisation d&rsquo;un tunnel ssh:</p>
 <div class="gdoc-page__anchorwrap"><h3 id="ajout-de-la-clé-publique">Ajout de la clé publique.<a data-clipboard-text="https://paulgay.github.io/documentation_cytech_google_cloud_computing/manual_configuration/jupyter/#ajout-de-la-clé-publique" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Ajout de la clé publique." href="#ajout-de-la-clé-publique"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h3></div>
 <p>Il faut d&rsquo;abord configurer votre serveur pour qu&rsquo;il accepte des connections venant de votre ordinateur. Pour cela, copiez votre clé publique sur le serveur</p>
 <ul>
@@ -439,9 +439,10 @@
 <p>Copiez l&rsquo;intégralité du fichier <code>~/.ssh/id_rsa.pub</code>
 Si le fichier n&rsquo;existe pas, vous pouvez le générer avec la commande <code>ssh-keygen</code></p>
 <p>À présent, ouvrez un tunnel ssh connectant votre machine à votre VM.</p>
-<pre><code>ssh -X -L 8099:localhost:8099 pandregay@adresse_ip_externe
-</code></pre><p>Depuis la VM, lancez votre jupyter:</p>
-<pre><code>jupyter-notebook --no-browser --port=8099
+<pre><code>ssh -X -L 8888:localhost:8888 pandregay@adresse_ip_externe
+</code></pre><p>Notez que le port doit correspondre à celui sur lequel votre Jupyter tourne.</p>
+<p>Depuis la VM, lancez votre jupyter (si vous ne l&rsquo;avez pas déjà fait par le biais de votre image docker):</p>
+<pre><code>jupyter-notebook --no-browser --port=8888
 </code></pre><pre><code>...
 To access the notebook, open this file in a browser:
     file:///home/pandregay/.local/share/jupyter/runtime/nbserver-18405-open.html
@@ -452,7 +453,7 @@ Or copy and paste one of these URLs:
 <pre><code>http://localhost:8099/?token=2703d92e3badf239641b349d2f5c4e9828cf3968f3c0926c
 </code></pre><p>dans votre navigateur.</p>
 <p>L&rsquo;url que vous entrez dans le navigateur doit avoir la forme : <code>http://adresse_ip_externe:8889/?token=votre_token</code></p>
-<div class="gdoc-page__anchorwrap"><h2 id="jupyter-noteboook-option2--configuration-des-pare-feu-et-addresse-ip-static">Jupyter noteboook option2 : configuration des pare-feu et addresse IP static<a data-clipboard-text="https://paulgay.github.io/documentation_cytech_google_cloud_computing/manual_configuration/jupyter/#jupyter-noteboook-option2--configuration-des-pare-feu-et-addresse-ip-static" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Jupyter noteboook option2 : configuration des pare-feu et addresse IP static" href="#jupyter-noteboook-option2--configuration-des-pare-feu-et-addresse-ip-static"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h2></div>
+<div class="gdoc-page__anchorwrap"><h2 id="jupyter-noteboook-option2--configuration-des-pare-feu-et-addresse-ip-statique">Jupyter noteboook option2 : configuration des pare-feu et addresse IP statique<a data-clipboard-text="https://paulgay.github.io/documentation_cytech_google_cloud_computing/manual_configuration/jupyter/#jupyter-noteboook-option2--configuration-des-pare-feu-et-addresse-ip-statique" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Jupyter noteboook option2 : configuration des pare-feu et addresse IP statique" href="#jupyter-noteboook-option2--configuration-des-pare-feu-et-addresse-ip-statique"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h2></div>
 <div class="gdoc-page__anchorwrap"><h2 id="configuration-des-firewalls-pour-jupyter">Configuration des firewalls pour Jupyter<a data-clipboard-text="https://paulgay.github.io/documentation_cytech_google_cloud_computing/manual_configuration/jupyter/#configuration-des-firewalls-pour-jupyter" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Configuration des firewalls pour Jupyter" href="#configuration-des-firewalls-pour-jupyter"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h2></div>
 <p>Sur le site de Google Cloud platform, allez dans <a href="https://console.cloud.google.com/networking/networks/">Réseaux VPC, </a></p>
 <div class="gdoc-page__anchorwrap"><h3 id="créer-une-ip-externe">Créer une IP externe<a data-clipboard-text="https://paulgay.github.io/documentation_cytech_google_cloud_computing/manual_configuration/jupyter/#créer-une-ip-externe" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Créer une IP externe" href="#créer-une-ip-externe"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h3></div>
@@ -471,7 +472,7 @@ Or copy and paste one of these URLs:
 </ul>
 <div class="gdoc-page__anchorwrap"><h2 id="installation-de-jupyter-sur-la-vm">installation de jupyter sur la VM<a data-clipboard-text="https://paulgay.github.io/documentation_cytech_google_cloud_computing/manual_configuration/jupyter/#installation-de-jupyter-sur-la-vm" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor installation de jupyter sur la VM" href="#installation-de-jupyter-sur-la-vm"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h2></div>
 <ul>
-<li><code>jupyter notebook --ip=0.0.0.0 --port=8889 --no-browser &amp;</code></li>
+<li><code>jupyter notebook --ip=0.0.0.0 --port=8888 --no-browser &amp;</code></li>
 </ul>
 <p>Accéder au Jupyter :</p>
 <ul>

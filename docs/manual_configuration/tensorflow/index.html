@@ -431,7 +431,7 @@
 <p>Sélectionner un mode de téléchargement sur le site de <a href="https://developer.nvidia.com/cuda-11.0-download-archive">cuda</a>.
 A l&rsquo;heure actuelle, tensorflow a été compilé avec la version 11.0 de cuda. Nous choisirons donc cette version.</p>
 <center>
-<img src="/cuda.png" alt="drawing" width="900"/>
+<img src="../../cuda.png" alt="drawing" width="900"/>
 </center>
 <p>Ensuite, exécutez donc les commandes suivantes:</p>
 <pre><code>sudo apt udpate
@@ -447,10 +447,8 @@ sudo apt-get -y install cuda
 export PATH=$PATH:/usr/local/cuda/bin/&quot; 
 </code></pre><p>Puis exécutez la commande suivante:</p>
 <div class="highlight"><pre class="chroma"><code class="language-Shell" data-lang="Shell"><span class="nb">source</span> .bashrc
-</code></pre></div><p>Ensuite, installez <a href="https://developer.nvidia.com/rdp/cudnn-archive">cudnn</a>. Il vous sera demandé de créer un compte.
-Une alternative est de le télécharger directement à partir de ce lien (ATTENTION, cette version n&rsquo;est pas mise à jour):</p>
-<pre><code>wget put the link
-</code></pre><pre><code>sudo dpkg -i libcudnn8_8.0.5.39-1+cuda11.0_amd64.deb
+</code></pre></div><p>Ensuite, installez <a href="https://developer.nvidia.com/rdp/cudnn-archive">cudnn</a>. Il vous sera demandé de créer un compte. Vous pourrez ensuite télécharger les fichiers <code>.deb</code> et utiliser la commande <code>dpkg</code> pour les installer.</p>
+<pre><code>sudo dpkg -i libcudnn8_8.0.5.39-1+cuda11.0_amd64.deb
 sudo dpkg -i libcudnn8-dev_8.0.5.39-1+cuda11.0_amd64.deb
 </code></pre><p>Pour vérifier que l&rsquo;installation a fonctionné, nous pouvons tester la commande <code>nvidia-smi</code>:</p>
 <pre><code>$ nvidia-smi
@@ -485,9 +483,9 @@ Choisissez celui pour linux en 64 bits et téléchargez-le, par exemple avec:</l
 </ul>
 <div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">wget https://repo.anaconda.com/archive/Anaconda3-2020.11-Linux-x86_64.sh
 </code></pre></div><ul>
-<li><code>bash Anaconda3-5.1.0-Linux-x86_64.sh</code>
-Il est ok d&rsquo;utiliser les défauts et d&rsquo;accepter l&rsquo;initialisation</li>
+<li><code>bash Anaconda3-5.1.0-Linux-x86_64.sh</code></li>
 </ul>
+<p>utilisez les défauts et accepter l&rsquo;initialisation</p>
 <pre><code>Do you wish the installer to initialize Anaconda3
 by running conda init? [yes|no]
 [no] &gt;&gt;&gt; yes
@@ -505,7 +503,7 @@ by running conda init? [yes|no]
 </ul>
 <div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="kn">import</span> <span class="nn">tensorflow</span> <span class="kn">as</span> <span class="nn">tf</span>
 <span class="n">physical_devices</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">list_physical_devices</span><span class="p">(</span><span class="s1">&#39;GPU&#39;</span><span class="p">)</span>
-</code></pre></div><pre><code>Put the result of the command
+</code></pre></div><pre><code>[PhysicalDevice(name='/physical_device:GPU:0', device_type='GPU')]
 </code></pre>
 
 

@@ -5,7 +5,7 @@ weight: 1
 ## Connection en ssh par le site google cloud
 
 Le tableau de bord vous donne l'adresse ip actuelle de votre VM. Vous pouvez cliquez sur le bouton ssh afin d'y ouvrir un terminal. 
-<img src="https://paulgay.github.io/documentation_cytech_google_cloud_computing/ssh.png" width="900"/>
+<img src="../..//ssh.png" width="900"/>
 
 
 La section suivante détaille comment lancer vos propres commandes depuis votre machine locale. C'est parfois nécessaire, par exemple pour créer des tunnels afin de copier des fichiers ou d'accéder au serveur jupyter. 
@@ -19,7 +19,7 @@ Il faut d'abord configurer votre serveur pour qu'il accepte des connections vena
 * Dans "Compute Engine -> Instance de VM -> Métadonnées"
 * Séléctionnez l'onglet "Clés SSH" puis le bouton "Modifier"
 <center>
-<img src="https://paulgay.github.io/documentation_cytech_google_cloud_computing/add_public_key.png" alt="drawing" width="900"/>
+<img src="../../add_public_key.png" alt="drawing" width="900"/>
 </center>
 
 Copiez l'intégralité du fichier présent sur votre machine locale avec pour chemin `~/.ssh/id_rsa.pub`

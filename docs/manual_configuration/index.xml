@@ -24,8 +24,8 @@ sudo apt udpate wget https://developer.download.nvidia.com/compute/cuda/repos/ub
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://paulgay.github.io/documentation_cytech_google_cloud_computing/manual_configuration/jupyter/</guid>
-      <description>Jupyter notebook : option1 : tunnel ssh Il existe plusieurs manières, nous décrivons ici l&amp;rsquo;utilisation d&amp;rsquo;un tunnel ssh:
-Ajout de la clé publique. Il faut d&amp;rsquo;abord configurer votre serveur pour qu&amp;rsquo;il accepte des connections venant de votre ordinateur. Pour cela, copiez votre clé publique sur le serveur
+      <description>Vous pouvez au choix configurez l&amp;rsquo;adresse IP et les parefeux de votre VM ou utliser un tunnel ssh.
+Jupyter notebook : option1 : tunnel ssh Ajout de la clé publique. Il faut d&amp;rsquo;abord configurer votre serveur pour qu&amp;rsquo;il accepte des connections venant de votre ordinateur. Pour cela, copiez votre clé publique sur le serveur
  Dans &amp;ldquo;Compute Engine -&amp;gt; Instance de VM -&amp;gt; Métadonnées&amp;rdquo; Séléctionnez l&amp;rsquo;onglet &amp;ldquo;Clés SSH&amp;rdquo; puis le bouton &amp;ldquo;Modifier&amp;rdquo;    Copiez l&amp;rsquo;intégralité du fichier ~/.</description>
     </item>
     
