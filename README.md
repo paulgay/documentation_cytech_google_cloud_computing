@@ -1,16 +1,23 @@
 # documentation_cytech_google_cloud_computing
 
-Ce repo contient une documentation en français sur l'utilisation des machines GCP à destination des étudiants de l'école Cy-tech
+> La branche gh-pages contient la version à jour documentation qui est visible sur les pages du github.
 
-Il est écrit avec l'outil hugo et le theme geekdoc. 
+
+Ce repo contient une documentation sur l'utilisation des machines GCP à destination des étudiants de l'école Cy-tech
+
+Elle est écrite avec l'outil hugo et le theme geekdoc. 
+
+Pour générer cette documentation en local: 
 
 Commencez par installer [hugo](https://gohugo.io/)
 
 Pour un déploiement en local sur votre machine, utilisez la commande:
 ```
+git clone https://github.com/paulgay/documentation_cytech_google_cloud_computing.git
+cd documentation_cytech_google_cloud_computing
 hugo server
 ```
-[Déploiement public](https://gohugo.io/hosting-and-deployment/) : Il est possible de déployer ce site sur les pages github (projet ou page personnelle). Un déploiement sur gitlab semble encore plus facile. 
+[Déploiement public](https://gohugo.io/hosting-and-deployment/) : Il est possible de déployer ce site, entre autre sur les pages github (projet ou page personnelle) ou sur un gitlab. 
 
 Ainsi, ce repo est connecté à un déploiement sur la [page github du projet](https://paulgay.github.io/documentation_cytech_google_cloud_computing/).
 
