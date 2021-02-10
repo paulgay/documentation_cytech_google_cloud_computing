@@ -1,5 +1,5 @@
 ---
-title: VM creation
+title: Création de la VM 
 weigth: 0
 ---
 Dans cette partie, nous allons installé une machine google cloud 
@@ -8,7 +8,7 @@ Dans cette partie, nous allons installé une machine google cloud
 
 ## Création de la VM
 
-<img src="/instance.png" width="900"/>
+<img src="https://paulgay.github.io/documentation_cytech_google_cloud_computing/instance.png" width="900"/>
 
 
 
@@ -29,14 +29,8 @@ Dans la liste déroulange "Plate-forme du processeur et GPU"
 * Cocher Autoriser le trafic HTTP et HTTPS
 
 {{< hint info >}}
-Reportez-vous à [Augmenter les quotas](#problème-de-quotas) si vous rencontrez le message d'erreur
+Reportez-vous à [Augmenter les quotas](../../troubleshooting#problème-de-quotas) si vous rencontrez le message d'erreur
 "... does not have enough resources available to fulfill the request. Try a different zone, or try again later. "
 {{< /hint >}}
-
-
-
-Vous avez créer votre VM avec son adresse IP externe qui vous servira pour vous y connecter.
-
-À présent, il s'agit d'y installer les librairies nous permettant d'y entraîner nos réseaux. Ici deux possibilités, un docker, ou une installation manuelle des librairies Cuda, tensorflow.
 
 

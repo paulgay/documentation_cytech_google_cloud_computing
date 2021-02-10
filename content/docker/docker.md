@@ -3,24 +3,21 @@ title: Running docker on tensorflow
 weigth: 0
 ---
 
+Une image docker fournit un environnement pré-installé et fonctionnel. Le principe général se situe entre la machine virtuelle et l'environnement virtuel. 
+
 Étant donné l'usage actuel universel de docker, c'est probablement une bonne idée de prendre du temps pour effectuer cette installation.
 
 {{< hint info >}}
 Vous devez avoir au préablable [créé votre VM](../manual_configuration/vm_creation). 
 {{< /hint >}}
 
-## A few lines to explain how docker is working 
-Installez [docker](https://docs.docker.com/engine/install/ubuntu/) sur votre VM
 
-
-
-## Installation de l'image
+Depuis votre VM [connectez-vous en ssh](../../utilisation/transfert_fichier) et installez [docker](https://docs.docker.com/engine/install/ubuntu/) sur votre VM
 
  
 
 ### Installation des drivers nvidia: 
 
-Récupérer la dernière version sur le site de [nvidia](https://www.nvidia.com/en-us/drivers/unix/)
 
 ```
 sudo apt-get install ubuntu-drivers-common
@@ -73,9 +70,19 @@ cd tensorflow/tensorflow/tools/dockerfiles/
 sudo docker build -f ./dockerfiles/gpu-jupyter.Dockerfile -t tf .
 sudo docker run -it --gpus all  --rm -v $(realpath ~/notebooks):/tf/notebooks -p 8888:8888 tf:latest
 ``` 
+À présent, votre jupyter est lancé sur le port 8888 et l'adresse `localhost` de la VM. 
+
+
 {{< hint info >}}
-It is more simple to download directly from the run command, but then, you don't have the 
+Vous pouvez aussi télécharger directement à partir de la commande `run`. L'avantage de passer par le fichier `.Dockerfile` est que vous pouvez l'adapter pour y ajouter d'autres librairies dont vous pourriez avoir besoin.
 ```
 sudo docker run -it --gpus all  --rm -v $(realpath ~/notebooks):/tf/notebooks -p 8888:8888 tf:latest
 ```
 {{< /hint >}}
+
+### Ajout de modules supplémentaires
+
+L'image docker et les libraires qu'elle contient sont entièrement spécifiés dans les fichiers *.Dockerfile.
+
+Il est indiqué dans le README du github de tensorflow qu'il n'est pas conseillé de modifier directement ces fichiers Dockerfile. 
+Il est proposé à la place de modifier un ficher de configuration et d'utiliser un script python pour générer les fichiers Dockerfile.

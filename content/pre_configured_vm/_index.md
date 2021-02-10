@@ -8,14 +8,11 @@ Il est possible d'installer une VM pré-configurée contenant Cuda, tensorflow, 
 
 
 https://console.cloud.google.com/ai/platform/notebooks/list/instances
+avec les options: 
 
+* Select 1 gpu tesla
+* "Install NVIDIA GPU driver automatically for me"
 
-Select 1 gpu tesla
+Cependant, cette VM vous coûte de l'argent même quand elle est éteinte. Vous pouvez choisir de la supprimer après chaque utilisation, mais ceci vous oblige à regénérer tout votre environnement à chaque fois ainsi que les données que vous souhaitez y stocker. 
 
-
-Cocher la case "Install NVIDIA GPU driver automatically for me"
-
-
-Pricing de la VM dans ce cas, ce qui coûte c'est la VM quand elle tourne, et les deux disks de 100Go. 
-Du coup pour stopper sans perdre les données vous pouvez faire un snapshot des disks https://console.cloud.google.com/compute/disks et éteindre la VM. Pour reprendre il faudra cliquer sur le snapshot https://console.cloud.google.com/compute/snapshots pour recréer un disk à partir de lui. Ensuite depuis l'instance faudra désigner les deux disks
-(Mais sinon vous pouvez tout supprimer, et réimporter quand nécessaire)
+Pour conserver les données, vous pouvez faire [une sauvegarde des disques](https://console.cloud.google.com/compute/disks) et éteindre ensuite la VM. Pour reprendre il faudra cliquer sur le [snapshot](https://console.cloud.google.com/compute/snapshots) pour recréer un disque à partir de ce dernier. 

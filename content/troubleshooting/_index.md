@@ -14,3 +14,4 @@ Passez la limite de "Compute Engine API GPUs (all regions)" à 1:
 * Sélectionnez-le, un bandeau doit apparaître à droite de l'écran. Cliquez "global" éditez les quotas  
 * faire une demande pour le passer à 1. (parfois 15 min d'attente avant confirmation)
 
+
