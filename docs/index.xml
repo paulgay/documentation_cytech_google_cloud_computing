@@ -11,10 +11,9 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://paulgay.github.io/documentation_cytech_google_cloud_computing/utilisation/transfert_fichier/</guid>
-      <description>Connection en ssh Vous pouvez cliquez sur le bouton ssh afin d&amp;rsquo;ouvrir un terminal sur votre VM
-Cependant, il est parfois nécessaire de lancer vos propres commandes depuis votre machine, par exemple pour créer des tunnels afin de copier des fichiers.
-Dans ce cas, il faut ajouter votre clé publique qui est sur votre machine personnelle dans le fichier authorized_keys de votre VM.
-Il faut d&amp;rsquo;abord configurer votre serveur pour qu&amp;rsquo;il accepte des connections venant de votre ordinateur.</description>
+      <description>Connection en ssh Le tableau de bord vous donne l&amp;rsquo;adresse ip actuelle de votre VM
+Vous pouvez cliquez sur le bouton ssh afin d&amp;rsquo;y ouvrir un terminal. Cependant, il est parfois nécessaire de lancer vos propres commandes depuis votre machine, par exemple pour créer des tunnels afin de copier des fichiers.
+Dans ce cas, il faut ajouter votre clé publique qui est sur votre machine personnelle dans le fichier authorized_keys de votre VM.</description>
     </item>
     
     <item>
