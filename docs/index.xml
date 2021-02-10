@@ -6,6 +6,18 @@
     <description>Recent content on Usage de Google Cloud Computing</description>
     <generator>Hugo -- gohugo.io</generator><atom:link href="https://paulgay.github.io/documentation_cytech_google_cloud_computing/index.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>Connection à la VM et transfert de fichiers</title>
+      <link>https://paulgay.github.io/documentation_cytech_google_cloud_computing/utilisation/transfert_fichier/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://paulgay.github.io/documentation_cytech_google_cloud_computing/utilisation/transfert_fichier/</guid>
+      <description>Connection en ssh Vous pouvez cliquez sur le bouton ssh afin d&amp;rsquo;ouvrir un terminal sur votre VM
+Cependant, il est parfois nécessaire de lancer vos propres commandes depuis votre machine, par exemple pour créer des tunnels afin de copier des fichiers.
+Dans ce cas, il faut ajouter votre clé publique qui est sur votre machine personnelle dans le fichier authorized_keys de votre VM.
+Il faut d&amp;rsquo;abord configurer votre serveur pour qu&amp;rsquo;il accepte des connections venant de votre ordinateur.</description>
+    </item>
+    
+    <item>
       <title>Installation de tensorflow</title>
       <link>https://paulgay.github.io/documentation_cytech_google_cloud_computing/manual_configuration/tensorflow/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -16,18 +28,6 @@ installation de Cuda Clikez sur le bouton ssh afin d&amp;rsquo;ouvrir un termina
 Sélectionner un mode de téléchargement sur le site de cuda. A l&amp;rsquo;heure actuelle, tensorflow a été compilé avec la version 11.0 de cuda. Nous choisirons donc cette version.
   Ensuite, exécutez donc les commandes suivantes:
 sudo apt udpate wget https://developer.download.nvidia.com/compute/cuda/repos/ubuntu2004/x86_64/cuda-ubuntu2004.pin sudo mv cuda-ubuntu2004.</description>
-    </item>
-    
-    <item>
-      <title>Transfert de fichiers</title>
-      <link>https://paulgay.github.io/documentation_cytech_google_cloud_computing/utilisation/transfert_fichier/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://paulgay.github.io/documentation_cytech_google_cloud_computing/utilisation/transfert_fichier/</guid>
-      <description>Connection en ssh Vous pouvez cliquez sur le bouton ssh afin d&amp;rsquo;ouvrir un terminal sur votre VM
-Cependant, il est parfois nécessaire de lancer vos propres commandes depuis votre machine, par exemple pour créer des tunnels afin de copier des fichiers.
-Dans ce cas, il faut ajouter votre clé publique qui est sur votre machine personnelle dans le fichier authorized_keys de votre VM.
-Il faut d&amp;rsquo;abord configurer votre serveur pour qu&amp;rsquo;il accepte des connections venant de votre ordinateur.</description>
     </item>
     
     <item>
@@ -48,9 +48,9 @@ Ajout de la clé publique. Il faut d&amp;rsquo;abord configurer votre serveur po
       
       <guid>https://paulgay.github.io/documentation_cytech_google_cloud_computing/docker/docker/</guid>
       <description>Étant donné l&amp;rsquo;usage actuel universel de docker, c&amp;rsquo;est probablement une bonne idée de prendre du temps pour effectuer cette installation.
-Vous devez avoir au préablable créé votre VM.  A few lines to explain how docker is working Depuis votre Installez docker sur votre VM
+Vous devez avoir au préablable créé votre VM.  A few lines to explain how docker is working Depuis votre VM connectez-vous en ssh et installez docker sur votre VM
 Installation de l&amp;rsquo;image Installation des drivers nvidia: Récupérer la dernière version sur le site de nvidia
-sudo apt-get install ubuntu-drivers-common ubuntu-drivers devices  == /sys/devices/pci0000:00/0000:00:04.0 == modalias : pci:v000010DEd0000102Dsv000010DEsd0000106Cbc03sc02i00 vendor : NVIDIA Corporation model : GK210GL [Tesla K80] driver : nvidia-driver-450-server - distro non-free driver : nvidia-driver-460 - distro non-free recommended driver : nvidia-driver-390 - distro non-free driver : nvidia-driver-418-server - distro non-free driver : nvidia-driver-450 - distro non-free driver : xserver-xorg-video-nouveau - distro free builtin  Nous installons la version recommandée (ici la 460):</description>
+sudo apt-get install ubuntu-drivers-common ubuntu-drivers devices  == /sys/devices/pci0000:00/0000:00:04.</description>
     </item>
     
     <item>

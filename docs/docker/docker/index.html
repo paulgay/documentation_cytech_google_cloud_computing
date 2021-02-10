@@ -309,7 +309,7 @@
             
                 <span class="flex">
                     <a href="/documentation_cytech_google_cloud_computing/utilisation/transfert_fichier/" class="gdoc-nav__entry ">
-                        Transfert de fichiers
+                        Connection à la VM et transfert de fichiers
                     </a>
                 </span>
             
@@ -431,8 +431,7 @@
 </blockquote>
 
 <div class="gdoc-page__anchorwrap"><h2 id="a-few-lines-to-explain-how-docker-is-working">A few lines to explain how docker is working<a data-clipboard-text="https://paulgay.github.io/documentation_cytech_google_cloud_computing/docker/docker/#a-few-lines-to-explain-how-docker-is-working" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor A few lines to explain how docker is working" href="#a-few-lines-to-explain-how-docker-is-working"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h2></div>
-<p>Depuis votre
-Installez <a href="https://docs.docker.com/engine/install/ubuntu/">docker</a> sur votre VM</p>
+<p>Depuis votre VM <a href="../../utilisation/transfert_fichier">connectez-vous en ssh</a> et installez <a href="https://docs.docker.com/engine/install/ubuntu/">docker</a> sur votre VM</p>
 <div class="gdoc-page__anchorwrap"><h2 id="installation-de-limage">Installation de l&rsquo;image<a data-clipboard-text="https://paulgay.github.io/documentation_cytech_google_cloud_computing/docker/docker/#installation-de-limage" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Installation de l&rsquo;image" href="#installation-de-limage"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h2></div>
 <div class="gdoc-page__anchorwrap"><h3 id="installation-des-drivers-nvidia">Installation des drivers nvidia:<a data-clipboard-text="https://paulgay.github.io/documentation_cytech_google_cloud_computing/docker/docker/#installation-des-drivers-nvidia" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Installation des drivers nvidia:" href="#installation-des-drivers-nvidia"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h3></div>
 <p>Récupérer la dernière version sur le site de <a href="https://www.nvidia.com/en-us/drivers/unix/">nvidia</a></p>
@@ -472,11 +471,15 @@ cd tensorflow/tensorflow/tools/dockerfiles/
 sudo docker build -f ./dockerfiles/gpu-jupyter.Dockerfile -t tf .
 sudo docker run -it --gpus all  --rm -v $(realpath ~/notebooks):/tf/notebooks -p 8888:8888 tf:latest
 </code></pre><blockquote class="gdoc-hint info">
-  <p>It is more simple to download directly from the run command, but then, you don&rsquo;t have the</p>
+  <p>You can also download directly from the run command, but then, you don&rsquo;t have the possibility to tune the dockerfile to add your own libraries.</p>
 <pre><code>sudo docker run -it --gpus all  --rm -v $(realpath ~/notebooks):/tf/notebooks -p 8888:8888 tf:latest
 </code></pre>
 </blockquote>
 
+<div class="gdoc-page__anchorwrap"><h3 id="ajout-de-modules-supplémentaires">Ajout de modules supplémentaires<a data-clipboard-text="https://paulgay.github.io/documentation_cytech_google_cloud_computing/docker/docker/#ajout-de-modules-supplémentaires" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Ajout de modules supplémentaires" href="#ajout-de-modules-supplémentaires"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h3></div>
+<p>L&rsquo;image docker et les libraires qu&rsquo;elle contient sont entièrement spécifiés dans les fichiers *.Dockerfile.</p>
+<p>Il est indiqué dans le README du github de tensorflow qu&rsquo;il n&rsquo;est pas conseillé de modifier directement ces fichiers Dockerfile.
+Il est proposé à la place de modifier un ficher de configuration et d&rsquo;utiliser un script python pour générer les fichiers Dockerfile.</p>
 
 
     </article>

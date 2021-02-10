@@ -4,9 +4,9 @@
 <head>
     <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Transfert de fichiers">
+<meta name="description" content="Connection à la VM et transfert de fichiers">
 
-<title>Transfert de fichiers | Usage de Google Cloud Computing</title>
+<title>Connection à la VM et transfert de fichiers | Usage de Google Cloud Computing</title>
 
 <link rel="icon" href="/documentation_cytech_google_cloud_computing/favicon/favicon-32x32.png" type="image/x-icon">
 
@@ -309,7 +309,7 @@
             
                 <span class="flex">
                     <a href="/documentation_cytech_google_cloud_computing/utilisation/transfert_fichier/" class="gdoc-nav__entry is-active">
-                        Transfert de fichiers
+                        Connection à la VM et transfert de fichiers
                     </a>
                 </span>
             
@@ -400,7 +400,7 @@
         
     
     
-        <a href='/documentation_cytech_google_cloud_computing/'></a> / <a href='/documentation_cytech_google_cloud_computing/utilisation/'>Utilisation de la VM</a> / Transfert de fichiers
+        <a href='/documentation_cytech_google_cloud_computing/'></a> / <a href='/documentation_cytech_google_cloud_computing/utilisation/'>Utilisation de la VM</a> / Connection à la VM et transfert de fichiers
     
 
     
@@ -417,7 +417,7 @@
 
 
     <article class="gdoc-markdown">
-        <h1>Transfert de fichiers</h1>
+        <h1>Connection à la VM et transfert de fichiers</h1>
         
 
 
@@ -443,6 +443,9 @@ Si ce fichier n&rsquo;existe pas sur votre machine, vous pouvez le générer ave
 <ul>
 <li>Vérifiez que votre clé publique est bien présente sur la VM dans le fichier <code>~/.ssh/authorized_keys</code></li>
 </ul>
+<blockquote>
+<p>Note: il n&rsquo;est pas conseillé de copier directement votre clé publique dans le fichier <code>authorized_keys</code> car google utilise des processus interne qui ré-écrivent ce fichier à partir de la configuration que vous avez indiqué sur leur site.</p>
+</blockquote>
 <div class="gdoc-page__anchorwrap"><h2 id="uploadez-des-fichiers-sur-sa-machine-locale">Uploadez des fichiers sur sa machine locale <a data-clipboard-text="https://paulgay.github.io/documentation_cytech_google_cloud_computing/utilisation/transfert_fichier/#uploadez-des-fichiers-sur-sa-machine-locale" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Uploadez des fichiers sur sa machine locale " href="#uploadez-des-fichiers-sur-sa-machine-locale"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h2></div>
 <div class="gdoc-page__anchorwrap"><h3 id="par-ssh">Par ssh<a data-clipboard-text="https://paulgay.github.io/documentation_cytech_google_cloud_computing/utilisation/transfert_fichier/#par-ssh" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Par ssh" href="#par-ssh"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h3></div>
 <p>Pour copier MON_FICHIER de la machine locale vers la VM</p>
