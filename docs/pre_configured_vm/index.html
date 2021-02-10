@@ -120,7 +120,7 @@
             
                 <span class="flex">
                     <a href="/documentation_cytech_google_cloud_computing/manual_configuration/vm_creation/" class="gdoc-nav__entry ">
-                        VM creation
+                        Création de la VM
                     </a>
                 </span>
             
@@ -419,12 +419,14 @@
 
 
 <p>Il est possible d&rsquo;installer une VM pré-configurée contenant Cuda, tensorflow, et la plupart des librairies utiles pour le Deep learning.</p>
-<p><a href="https://console.cloud.google.com/ai/platform/notebooks/list/instances">https://console.cloud.google.com/ai/platform/notebooks/list/instances</a></p>
-<p>Select 1 gpu tesla</p>
-<p>Cocher la case &ldquo;Install NVIDIA GPU driver automatically for me&rdquo;</p>
-<p>Pricing de la VM dans ce cas, ce qui coûte c&rsquo;est la VM quand elle tourne, et les deux disks de 100Go. 
-Du coup pour stopper sans perdre les données vous pouvez faire un snapshot des disks https://console.cloud.google.com/compute/disks et éteindre la VM. Pour reprendre il faudra cliquer sur le snapshot https://console.cloud.google.com/compute/snapshots pour recréer un disk à partir de lui. Ensuite depuis l&rsquo;instance faudra désigner les deux disks
-(Mais sinon vous pouvez tout supprimer, et réimporter quand nécessaire)</p>
+<p><a href="https://console.cloud.google.com/ai/platform/notebooks/list/instances">https://console.cloud.google.com/ai/platform/notebooks/list/instances</a>
+avec les options:</p>
+<ul>
+<li>Select 1 gpu tesla</li>
+<li>&ldquo;Install NVIDIA GPU driver automatically for me&rdquo;</li>
+</ul>
+<p>Cependant, cette VM vous coûte de l&rsquo;argent même quand elle est éteinte. Vous pouvez choisir de la supprimer après chaque utilisation, mais ceci vous oblige à regénérer tout votre environnement à chaque fois ainsi que les données que vous souhaitez y stocker.</p>
+<p>Pour conserver les données, vous pouvez faire <a href="https://console.cloud.google.com/compute/disks">une sauvegarde des disques</a> et éteindre ensuite la VM. Pour reprendre il faudra cliquer sur le <a href="https://console.cloud.google.com/compute/snapshots">snapshot</a> pour recréer un disque à partir de ce dernier.</p>
 
 
     </article>

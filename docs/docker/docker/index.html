@@ -119,7 +119,7 @@
             
                 <span class="flex">
                     <a href="/documentation_cytech_google_cloud_computing/manual_configuration/vm_creation/" class="gdoc-nav__entry ">
-                        VM creation
+                        Création de la VM
                     </a>
                 </span>
             
@@ -425,16 +425,14 @@
     
 
 
+<p>Une image docker fournit un environnement pré-installé et fonctionnel. Le principe général se situe entre la machine virtuelle et l&rsquo;environnement virtuel.</p>
 <p>Étant donné l&rsquo;usage actuel universel de docker, c&rsquo;est probablement une bonne idée de prendre du temps pour effectuer cette installation.</p>
 <blockquote class="gdoc-hint info">
   Vous devez avoir au préablable <a href="../manual_configuration/vm_creation">créé votre VM</a>.
 </blockquote>
 
-<div class="gdoc-page__anchorwrap"><h2 id="a-few-lines-to-explain-how-docker-is-working">A few lines to explain how docker is working<a data-clipboard-text="https://paulgay.github.io/documentation_cytech_google_cloud_computing/docker/docker/#a-few-lines-to-explain-how-docker-is-working" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor A few lines to explain how docker is working" href="#a-few-lines-to-explain-how-docker-is-working"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h2></div>
 <p>Depuis votre VM <a href="../../utilisation/transfert_fichier">connectez-vous en ssh</a> et installez <a href="https://docs.docker.com/engine/install/ubuntu/">docker</a> sur votre VM</p>
-<div class="gdoc-page__anchorwrap"><h2 id="installation-de-limage">Installation de l&rsquo;image<a data-clipboard-text="https://paulgay.github.io/documentation_cytech_google_cloud_computing/docker/docker/#installation-de-limage" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Installation de l&rsquo;image" href="#installation-de-limage"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h2></div>
 <div class="gdoc-page__anchorwrap"><h3 id="installation-des-drivers-nvidia">Installation des drivers nvidia:<a data-clipboard-text="https://paulgay.github.io/documentation_cytech_google_cloud_computing/docker/docker/#installation-des-drivers-nvidia" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Installation des drivers nvidia:" href="#installation-des-drivers-nvidia"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h3></div>
-<p>Récupérer la dernière version sur le site de <a href="https://www.nvidia.com/en-us/drivers/unix/">nvidia</a></p>
 <pre><code>sudo apt-get install ubuntu-drivers-common
 ubuntu-drivers devices
 </code></pre><pre><code>    == /sys/devices/pci0000:00/0000:00:04.0 ==
@@ -470,8 +468,9 @@ git clone https://github.com/tensorflow/tensorflow.git
 cd tensorflow/tensorflow/tools/dockerfiles/
 sudo docker build -f ./dockerfiles/gpu-jupyter.Dockerfile -t tf .
 sudo docker run -it --gpus all  --rm -v $(realpath ~/notebooks):/tf/notebooks -p 8888:8888 tf:latest
-</code></pre><blockquote class="gdoc-hint info">
-  <p>You can also download directly from the run command, but then, you don&rsquo;t have the possibility to tune the dockerfile to add your own libraries.</p>
+</code></pre><p>À présent, votre jupyter est lancé sur le port 8888 et l&rsquo;adresse <code>localhost</code> de la VM.</p>
+<blockquote class="gdoc-hint info">
+  <p>Vous pouvez aussi télécharger directement à partir de la commande <code>run</code>. L&rsquo;avantage de passer par le fichier <code>.Dockerfile</code> est que vous pouvez l&rsquo;adapter pour y ajouter d&rsquo;autres librairies dont vous pourriez avoir besoin.</p>
 <pre><code>sudo docker run -it --gpus all  --rm -v $(realpath ~/notebooks):/tf/notebooks -p 8888:8888 tf:latest
 </code></pre>
 </blockquote>

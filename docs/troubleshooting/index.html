@@ -120,7 +120,7 @@
             
                 <span class="flex">
                     <a href="/documentation_cytech_google_cloud_computing/manual_configuration/vm_creation/" class="gdoc-nav__entry ">
-                        VM creation
+                        Création de la VM
                     </a>
                 </span>
             
@@ -426,31 +426,6 @@
 <li>Sélectionnez-le, un bandeau doit apparaître à droite de l&rsquo;écran. Cliquez &ldquo;global&rdquo; éditez les quotas  </li>
 <li>faire une demande pour le passer à 1. (parfois 15 min d&rsquo;attente avant confirmation)</li>
 </ul>
-<div class="gdoc-page__anchorwrap"><h3 id="troubleshoot--aucune-gpu-listée-">Troubleshoot : Aucune GPU listée :<a data-clipboard-text="https://paulgay.github.io/documentation_cytech_google_cloud_computing/troubleshooting/#troubleshoot--aucune-gpu-listée-" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Troubleshoot : Aucune GPU listée :" href="#troubleshoot--aucune-gpu-listée-"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h3></div>
-<ul>
-<li>
-<p><code>pip3 show tensorflow-gpu</code> 
-Vérifier que tensorflow-gpu==2.2.0 est installé sur l&rsquo;environnement conda où vous lancez le jupyter.
-Cette commande doit retourner la version 2.2 (voir au dessus, pour correspondre au cuda10.2 c&rsquo;est nécessaire de pas mettre la dernière version dispo)</p>
-</li>
-<li>
-<p><code>pip3 show tensorflow</code>
-Cette commande ne devrait rien retourner, dans ce cas c&rsquo;est OK</p>
-</li>
-<li>
-<p>Si lorsque vous listez les devices (avec la cellule d&rsquo;au dessus) vous voyez dans la console : Could not load dynamic library &lsquo;libcudart.so.10.2&rsquo; alors il faut hacker le code tensorflow pour qu&rsquo;il la trouve (ou réinstaller depuis les sources, c&rsquo;est ce qu&rsquo;ils disent sur le tuto mais c&rsquo;est embêtant)
-    * <code>sudo ln -s /usr/local/cuda-10.2/targets/x86_64-linux/lib/libcudart.so.10.2 /usr/lib/x86_64-linux-gnu/libcudart.so.10.2</code></p>
-</li>
-<li>
-<p>S&rsquo;il demande une autre version de la librairie libcudart alors c&rsquo;est qu&rsquo;il faut que vous changiez la version de tensorflow-gpu pour qu&rsquo;il change ses prérequis</p>
-</li>
-<li>
-<p>Si toujours pas bon, ajoutez ça à la fin du bashrc :
-    * <code>export PATH=/usr/local/cuda-10.2/bin${PATH:+:${PATH}}</code>
-    * <code>export LD_LIBRARY_PATH=/usr/local/cuda-10.2/lib64${LD_LIBRARY_PATH:+:${LD_LIBRARY_PATH}}</code></p>
-</li>
-</ul>
-<p>Ca fonctionnera quand la cellule vous printera une ligne pour le CPU et une ou plusieurs lignes pour la GPU</p>
 
 
     </article>
