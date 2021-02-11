@@ -17,7 +17,7 @@ A l'heure actuelle, tensorflow a été compilé avec la version 11.0 de cuda. No
 </center>
 
 
-Ensuite, exécutez donc les commandes suivantes: 
+Ensuite, exécutez les commandes suivantes: 
 
 ```
 sudo apt udpate
@@ -94,7 +94,7 @@ Do you wish the installer to initialize Anaconda3
 by running conda init? [yes|no]
 [no] >>> yes
 ```
-* Redémmarez votre shell ou rechargez votre fichier `source ~/.bashrc`
+* Redémarrez votre shell ou rechargez votre fichier avec `source ~/.bashrc`
 
 * Installez tensorflow depuis votre environnement conda
 ```bash

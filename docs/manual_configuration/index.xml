@@ -14,7 +14,7 @@
       <description>Commençons par la librairie Cuda qui permettra à Tensorflow d&amp;rsquo;utiliser le GPU.
 installation de Cuda Clikez sur le bouton ssh afin d&amp;rsquo;ouvrir un terminal sur votre machine virtuelle.
 Sélectionner un mode de téléchargement sur le site de cuda. A l&amp;rsquo;heure actuelle, tensorflow a été compilé avec la version 11.0 de cuda. Nous choisirons donc cette version.
-  Ensuite, exécutez donc les commandes suivantes:
+  Ensuite, exécutez les commandes suivantes:
 sudo apt udpate wget https://developer.download.nvidia.com/compute/cuda/repos/ubuntu2004/x86_64/cuda-ubuntu2004.pin sudo mv cuda-ubuntu2004.</description>
     </item>
     
@@ -25,8 +25,9 @@ sudo apt udpate wget https://developer.download.nvidia.com/compute/cuda/repos/ub
       
       <guid>https://paulgay.github.io/documentation_cytech_google_cloud_computing/manual_configuration/jupyter/</guid>
       <description>Vous pouvez au choix configurez l&amp;rsquo;adresse IP et les parefeux de votre VM ou utliser un tunnel ssh.
-Jupyter notebook : option1 : tunnel ssh Ajout de la clé publique. Il faut d&amp;rsquo;abord configurer votre serveur pour qu&amp;rsquo;il accepte des connections venant de votre ordinateur. Pour cela, copiez votre clé publique sur le serveur
- Dans &amp;ldquo;Compute Engine -&amp;gt; Instance de VM -&amp;gt; Métadonnées&amp;rdquo; Séléctionnez l&amp;rsquo;onglet &amp;ldquo;Clés SSH&amp;rdquo; puis le bouton &amp;ldquo;Modifier&amp;rdquo;    Copiez l&amp;rsquo;intégralité du fichier ~/.</description>
+Jupyter notebook : option1 : tunnel ssh  Pré-requis : ajouter sa clé publique à la VM pour pourvoir s&amp;rsquo;y connecter en ssh depuis votre machine locale.
+ Ouvrez un tunnel ssh connectant votre machine au localhost de votre VM.
+ssh -X -L 8888:localhost:8888 pandregay@adresse_ip_externe Notez que le numéro du port doit correspondre à celui sur lequel votre Jupyter tourne.</description>
     </item>
     
     <item>

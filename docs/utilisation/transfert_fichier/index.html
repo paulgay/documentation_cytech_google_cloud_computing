@@ -4,9 +4,9 @@
 <head>
     <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Connection à la VM et transfert de fichiers">
+<meta name="description" content="Connection ssh et transfert de fichiers">
 
-<title>Connection à la VM et transfert de fichiers | Usage de Google Cloud Computing</title>
+<title>Connection ssh et transfert de fichiers | Usage de Google Cloud Computing</title>
 
 <link rel="icon" href="/documentation_cytech_google_cloud_computing/favicon/favicon-32x32.png" type="image/x-icon">
 
@@ -309,7 +309,7 @@
             
                 <span class="flex">
                     <a href="/documentation_cytech_google_cloud_computing/utilisation/transfert_fichier/" class="gdoc-nav__entry is-active">
-                        Connection à la VM et transfert de fichiers
+                        Connection ssh et transfert de fichiers
                     </a>
                 </span>
             
@@ -400,7 +400,7 @@
         
     
     
-        <a href='/documentation_cytech_google_cloud_computing/'></a> / <a href='/documentation_cytech_google_cloud_computing/utilisation/'>Utilisation de la VM</a> / Connection à la VM et transfert de fichiers
+        <a href='/documentation_cytech_google_cloud_computing/'></a> / <a href='/documentation_cytech_google_cloud_computing/utilisation/'>Utilisation de la VM</a> / Connection ssh et transfert de fichiers
     
 
     
@@ -417,7 +417,7 @@
 
 
     <article class="gdoc-markdown">
-        <h1>Connection à la VM et transfert de fichiers</h1>
+        <h1>Connection ssh et transfert de fichiers</h1>
         
 
 
@@ -426,12 +426,16 @@
 
 
 <div class="gdoc-page__anchorwrap"><h2 id="connection-en-ssh-par-le-site-google-cloud">Connection en ssh par le site google cloud<a data-clipboard-text="https://paulgay.github.io/documentation_cytech_google_cloud_computing/utilisation/transfert_fichier/#connection-en-ssh-par-le-site-google-cloud" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Connection en ssh par le site google cloud" href="#connection-en-ssh-par-le-site-google-cloud"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h2></div>
-<p>Le tableau de bord vous donne l&rsquo;adresse ip actuelle de votre VM. Vous pouvez cliquez sur le bouton ssh afin d&rsquo;y ouvrir un terminal.
+<p>Le tableau de bord vous donne l&rsquo;adresse ip actuelle de votre VM. Notez que cette adresse changera à chaque démarrage à moins que ne vous ne la configuriez statique.</p>
+<p>Vous pouvez cliquez sur le bouton ssh afin d&rsquo;y ouvrir un terminal.
 <img src="../..//ssh.png" width="900"/></p>
-<p>La section suivante détaille comment lancer vos propres commandes depuis votre machine locale. C&rsquo;est parfois nécessaire, par exemple pour créer des tunnels afin de copier des fichiers ou d&rsquo;accéder au serveur jupyter.</p>
+<p>La section suivante détaille comment lancer vos propres commandes ssh depuis votre machine locale (ou comme il est écrit sur le site de gcp, depuis un outil tiers). C&rsquo;est parfois nécessaire, par exemple pour créer des tunnels afin de copier des fichiers ou d&rsquo;accéder au serveur jupyter.</p>
 <div class="gdoc-page__anchorwrap"><h2 id="connection-en-ssh-depuis-votre-machine-locale">Connection en ssh depuis votre machine locale<a data-clipboard-text="https://paulgay.github.io/documentation_cytech_google_cloud_computing/utilisation/transfert_fichier/#connection-en-ssh-depuis-votre-machine-locale" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Connection en ssh depuis votre machine locale" href="#connection-en-ssh-depuis-votre-machine-locale"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h2></div>
 <p>Il faut ajouter votre clé publique qui est sur votre machine locale dans le fichier <code>authorized_keys</code> de votre VM.</p>
-<p>Il faut d&rsquo;abord configurer votre serveur pour qu&rsquo;il accepte des connections venant de votre ordinateur. Pour cela, copiez votre clé publique sur le serveur</p>
+<blockquote>
+<p>Note: il n&rsquo;est pas conseillé de copier directement votre clé publique dans le fichier <code>authorized_keys</code> car google utilise des processus internes qui ré-écrivent et écrasent régulièrement ce fichier.</p>
+</blockquote>
+<p>Une solution est d&rsquo;ajouter votre clé publique dans les métadonnées de votre VM.</p>
 <ul>
 <li>Dans &ldquo;Compute Engine -&gt; Instance de VM -&gt; Métadonnées&rdquo;</li>
 <li>Séléctionnez l&rsquo;onglet &ldquo;Clés SSH&rdquo; puis le bouton &ldquo;Modifier&rdquo;</li>
@@ -439,20 +443,18 @@
 <center>
 <img src="../../add_public_key.png" alt="drawing" width="900"/>
 </center>
-<p>Copiez l&rsquo;intégralité du fichier présent sur votre machine locale avec pour chemin <code>~/.ssh/id_rsa.pub</code>
-Si ce fichier n&rsquo;existe pas, vous pouvez le générer avec la commande <code>ssh-keygen</code></p>
-<ul>
-<li>Vérifiez que votre clé publique est bien présente sur la VM dans le fichier <code>~/.ssh/authorized_keys</code></li>
+<p>Copiez l&rsquo;intégralité du fichier présent sur votre machine locale avec pour chemin <code>~/.ssh/id_rsa.pub</code></p>
+<p>Si ce fichier n&rsquo;existe pas, vous pouvez le générer avec la commande <code>ssh-keygen -t rsa</code></p>
+<p>Formattez ensuite l&rsquo;affichage de votre clé pour qu&rsquo;elle ressemble à:</p>
+<pre><code>ssh-rsa token_long_list_of_characters google-ssh {&quot;userName&quot;:&quot;your_login&quot;,&quot;expireOn&quot;:&quot;2023-02-10T23:16:51+0000&quot;}
+</code></pre><ul>
+<li>Vérifiez ensuite que votre clé publique est bien présente sur la VM dans le fichier <code>~/.ssh/authorized_keys</code></li>
 </ul>
-<blockquote>
-<p>Note: il n&rsquo;est pas conseillé de copier directement votre clé publique dans le fichier <code>authorized_keys</code> car google utilise des processus interne qui ré-écrivent ce fichier à partir de la configuration que vous avez indiqué sur leur site.</p>
-</blockquote>
-<div class="gdoc-page__anchorwrap"><h2 id="uploadez-des-fichiers-sur-sa-machine-locale">Uploadez des fichiers sur sa machine locale <a data-clipboard-text="https://paulgay.github.io/documentation_cytech_google_cloud_computing/utilisation/transfert_fichier/#uploadez-des-fichiers-sur-sa-machine-locale" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Uploadez des fichiers sur sa machine locale " href="#uploadez-des-fichiers-sur-sa-machine-locale"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h2></div>
+<div class="gdoc-page__anchorwrap"><h2 id="uploadez-des-fichiers-de-sa-machine-localevers-la-vm">Uploadez des fichiers de sa machine locale vers la VM<a data-clipboard-text="https://paulgay.github.io/documentation_cytech_google_cloud_computing/utilisation/transfert_fichier/#uploadez-des-fichiers-de-sa-machine-localevers-la-vm" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Uploadez des fichiers de sa machine locale vers la VM" href="#uploadez-des-fichiers-de-sa-machine-localevers-la-vm"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h2></div>
 <div class="gdoc-page__anchorwrap"><h3 id="par-ssh">Par ssh<a data-clipboard-text="https://paulgay.github.io/documentation_cytech_google_cloud_computing/utilisation/transfert_fichier/#par-ssh" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Par ssh" href="#par-ssh"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h3></div>
 <p>Pour copier MON_FICHIER de la machine locale vers la VM</p>
-<pre><code>scp /chemin/vers/MON_FICHIER  login@address_ip_externe:/chemin/sur/la/VM
-</code></pre><div class="gdoc-page__anchorwrap"><h2 id="buckets">buckets<a data-clipboard-text="https://paulgay.github.io/documentation_cytech_google_cloud_computing/utilisation/transfert_fichier/#buckets" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor buckets" href="#buckets"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h2></div>
-
+<pre><code>scp /chemin_local/vers/MON_FICHIER  login@address_ip_externe:/chemin/sur/la/VM
+</code></pre>
 
     </article>
 
