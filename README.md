@@ -21,5 +21,5 @@ hugo server
 
 Ainsi, ce repo est connecté à un déploiement sur la [page github du projet](https://paulgay.github.io/documentation_cytech_google_cloud_computing/).
 
-N'hésitez pas à ouvrir une issue si vous rencontrez des difficultés lors de l'installation de votre VM ou pour suggérer l'écriture de nouvelles sections.
+N'hésitez pas à ouvrir une [issue](https://github.com/paulgay/documentation_cytech_google_cloud_computing/issues) si vous rencontrez des difficultés lors de l'installation de votre VM ou pour suggérer l'écriture de nouvelles sections.
 
