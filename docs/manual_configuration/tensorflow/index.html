@@ -443,8 +443,8 @@ sudo apt-key add /var/cuda-repo-ubuntu2004-11-0-local/7fa2af80.pub
 sudo apt-get update
 sudo apt-get -y install cuda
 </code></pre><p>Ajoutez les lignes suivantes dans le fichier <code>~/.bashrc</code></p>
-<pre><code>export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/cuda/lib64export&quot; 
-export PATH=$PATH:/usr/local/cuda/bin/&quot; 
+<pre><code>export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/cuda/lib64
+export PATH=$PATH:/usr/local/cuda/bin/
 </code></pre><p>Puis exécutez la commande suivante:</p>
 <div class="highlight"><pre class="chroma"><code class="language-Shell" data-lang="Shell"><span class="nb">source</span> .bashrc
 </code></pre></div><p>Ensuite, installez <a href="https://developer.nvidia.com/rdp/cudnn-archive">cudnn</a>. Il vous sera demandé de créer un compte. Vous pourrez ensuite télécharger les fichiers <code>.deb</code> et utiliser la commande <code>dpkg</code> pour les installer.</p>

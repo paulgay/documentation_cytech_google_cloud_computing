@@ -32,8 +32,8 @@ sudo apt-get -y install cuda
 
 Ajoutez les lignes suivantes dans le fichier `~/.bashrc`
 ```
-export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/cuda/lib64export" 
-export PATH=$PATH:/usr/local/cuda/bin/" 
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/cuda/lib64
+export PATH=$PATH:/usr/local/cuda/bin/
 ```
 
 Puis exécutez la commande suivante: 
