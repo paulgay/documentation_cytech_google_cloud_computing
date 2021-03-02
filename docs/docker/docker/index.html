@@ -468,12 +468,14 @@ sudo apt install git
 git clone https://github.com/tensorflow/tensorflow.git
 cd tensorflow/tensorflow/tools/dockerfiles/
 sudo docker build -f ./dockerfiles/gpu-jupyter.Dockerfile -t tf .
-</code></pre><blockquote>
+</code></pre><p>ici, l&rsquo;argument <code>tf</code> dans la dernière ligne correspond au nom de votre container. Vous pouvez le remplacez par la chaine de caractères que vous souhaitez.</p>
+<blockquote>
 <p>ces commandes doivent être exécutées depuis le repertoire <code>tensorflow/tools/dockerfiles</code> car elles supposent que certains fichiers (comme le fichier bashrc) sont disponibles dans le répertoire courant.</p>
 </blockquote>
 <p>La dernière ligne est la commande qui construit votre image sous le nom de <code>tf</code>. Pour lancer le notebook</p>
-<pre><code>sudo docker run -it --gpus all  --rm -v $(realpath ~/notebooks):/tf/notebooks -p 8888:8888 tf:latest
-</code></pre><p>À présent, votre jupyter est lancé sur le port 8888 et l&rsquo;adresse <code>localhost</code> de la VM.
+<pre><code>sudo docker run -it --gpus all  --rm -v $(realpath ~/notebooks):/tf/notebooks -p 8888:8888 tf
+</code></pre><p>Notez l&rsquo;argument <code>tf</code> qui correspond au nom que nous avons donné au containeur lors de sa construction.</p>
+<p>À présent, votre jupyter est lancé sur le port 8888 et l&rsquo;adresse <code>localhost</code> de la VM.
 Le répertoire qui contient vos notebook est indiqué dans la commande. Dans cet exemple, il s&rsquo;agit de <code>~/notebooks</code>. Notez que l&rsquo;environnement docker n&rsquo;a pas accès aux autres répertoires de votre VM.</p>
 <p>Consultez <a href="../../manual_configuration/jupyter/">cette section</a> pour accéder au jupyter de votre VM.</p>
 <blockquote class="gdoc-hint info">
