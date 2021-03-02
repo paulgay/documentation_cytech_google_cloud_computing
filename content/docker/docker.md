@@ -69,13 +69,16 @@ git clone https://github.com/tensorflow/tensorflow.git
 cd tensorflow/tensorflow/tools/dockerfiles/
 sudo docker build -f ./dockerfiles/gpu-jupyter.Dockerfile -t tf .
 ```
+ici, l'argument `tf` dans la dernière ligne correspond au nom de votre container. Vous pouvez le remplacez par la chaine de caractères que vous souhaitez.
 
 > ces commandes doivent être exécutées depuis le repertoire `tensorflow/tools/dockerfiles` car elles supposent que certains fichiers (comme le fichier bashrc) sont disponibles dans le répertoire courant.
 
 La dernière ligne est la commande qui construit votre image sous le nom de `tf`. Pour lancer le notebook
 ```
-sudo docker run -it --gpus all  --rm -v $(realpath ~/notebooks):/tf/notebooks -p 8888:8888 tf:latest
+sudo docker run -it --gpus all  --rm -v $(realpath ~/notebooks):/tf/notebooks -p 8888:8888 tf
 ``` 
+Notez l'argument `tf` qui correspond au nom que nous avons donné au containeur lors de sa construction.
+
 À présent, votre jupyter est lancé sur le port 8888 et l'adresse `localhost` de la VM. 
 Le répertoire qui contient vos notebook est indiqué dans la commande. Dans cet exemple, il s'agit de `~/notebooks`. Notez que l'environnement docker n'a pas accès aux autres répertoires de votre VM.
 
