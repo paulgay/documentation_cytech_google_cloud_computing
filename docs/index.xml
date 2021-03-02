@@ -53,7 +53,7 @@ Créer l&amp;rsquo;instance du serveur Google Cloud Création de la VM  Compute 
     </item>
     
     <item>
-      <title>Running docker on tensorflow</title>
+      <title>Installation de Tensorflow avec docker</title>
       <link>https://paulgay.github.io/documentation_cytech_google_cloud_computing/docker/docker/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
@@ -61,7 +61,7 @@ Créer l&amp;rsquo;instance du serveur Google Cloud Création de la VM  Compute 
       <description>Une image docker fournit un environnement pré-installé et fonctionnel. Le principe général se situe entre la machine virtuelle et l&amp;rsquo;environnement virtuel.
 Étant donné l&amp;rsquo;usage actuel universel de docker, c&amp;rsquo;est probablement une bonne idée de prendre du temps pour effectuer cette installation.
 Vous devez avoir au préablable créé votre VM.  Depuis votre VM connectez-vous en ssh et installez docker sur votre VM
-Installation des drivers nvidia: sudo apt-get install ubuntu-drivers-common ubuntu-drivers devices  == /sys/devices/pci0000:00/0000:00:04.</description>
+L&amp;rsquo;installation consiste à ajouter les drivers nvidia, puis à télécharger un conteneur docker qui contiendra la librairie tensorflow avec les dépendances cuda.</description>
     </item>
     
   </channel>

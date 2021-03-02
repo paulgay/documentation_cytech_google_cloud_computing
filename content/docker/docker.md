@@ -1,5 +1,5 @@
 ---
-title: Running docker on tensorflow 
+title: Installation de Tensorflow avec docker 
 weigth: 0
 ---
 
@@ -14,7 +14,7 @@ Vous devez avoir au préablable [créé votre VM](../manual_configuration/vm_cre
 
 Depuis votre VM [connectez-vous en ssh](../../utilisation/transfert_fichier) et installez [docker](https://docs.docker.com/engine/install/ubuntu/) sur votre VM
 
- 
+L'installation consiste à ajouter les drivers nvidia, puis à télécharger un conteneur docker qui contiendra la librairie tensorflow avec les dépendances cuda.  
 
 ### Installation des drivers nvidia: 
 
@@ -61,7 +61,7 @@ Re-démarrez votre machine.
 
 ### Installation de l'image docker
 
-Des fichiers docker sont disponibles sur le github de tensorflow: 
+Des fichiers Dockerfile sont disponibles sur le github de tensorflow: 
 ```
 sudo apt update
 sudo apt install git
@@ -69,11 +69,15 @@ git clone https://github.com/tensorflow/tensorflow.git
 cd tensorflow/tensorflow/tools/dockerfiles/
 sudo docker build -f ./dockerfiles/gpu-jupyter.Dockerfile -t tf .
 ```
+
+> ces commandes doivent être exécutées depuis le repertoire `tensorflow/tools/dockerfiles` car elles supposent que certains fichiers (comme le fichier bashrc) sont disponibles dans le répertoire courant.
+
 La dernière ligne est la commande qui construit votre image sous le nom de `tf`. Pour lancer le notebook
 ```
 sudo docker run -it --gpus all  --rm -v $(realpath ~/notebooks):/tf/notebooks -p 8888:8888 tf:latest
 ``` 
 À présent, votre jupyter est lancé sur le port 8888 et l'adresse `localhost` de la VM. 
+Le répertoire qui contient vos notebook est indiqué dans la commande. Dans cet exemple, il s'agit de `~/notebooks`. Notez que l'environnement docker n'a pas accès aux autres répertoires de votre VM.
 
 Consultez [cette section](../../manual_configuration/jupyter/) pour accéder au jupyter de votre VM.
 

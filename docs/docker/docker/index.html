@@ -4,9 +4,9 @@
 <head>
     <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Running docker on tensorflow">
+<meta name="description" content="Installation de Tensorflow avec docker">
 
-<title>Running docker on tensorflow | Usage de Google Cloud Computing</title>
+<title>Installation de Tensorflow avec docker | Usage de Google Cloud Computing</title>
 
 <link rel="icon" href="/documentation_cytech_google_cloud_computing/favicon/favicon-32x32.png" type="image/x-icon">
 
@@ -227,7 +227,7 @@
             
                 <span class="flex">
                     <a href="/documentation_cytech_google_cloud_computing/docker/docker/" class="gdoc-nav__entry is-active">
-                        Running docker on tensorflow
+                        Installation de Tensorflow avec docker
                     </a>
                 </span>
             
@@ -400,7 +400,7 @@
         
     
     
-        <a href='/documentation_cytech_google_cloud_computing/'></a> / <a href='/documentation_cytech_google_cloud_computing/docker/'>tensorflow and Jupyter in Docker</a> / Running docker on tensorflow
+        <a href='/documentation_cytech_google_cloud_computing/'></a> / <a href='/documentation_cytech_google_cloud_computing/docker/'>tensorflow and Jupyter in Docker</a> / Installation de Tensorflow avec docker
     
 
     
@@ -417,7 +417,7 @@
 
 
     <article class="gdoc-markdown">
-        <h1>Running docker on tensorflow</h1>
+        <h1>Installation de Tensorflow avec docker</h1>
         
 
 
@@ -432,6 +432,7 @@
 </blockquote>
 
 <p>Depuis votre VM <a href="../../utilisation/transfert_fichier">connectez-vous en ssh</a> et installez <a href="https://docs.docker.com/engine/install/ubuntu/">docker</a> sur votre VM</p>
+<p>L&rsquo;installation consiste à ajouter les drivers nvidia, puis à télécharger un conteneur docker qui contiendra la librairie tensorflow avec les dépendances cuda.</p>
 <div class="gdoc-page__anchorwrap"><h3 id="installation-des-drivers-nvidia">Installation des drivers nvidia:<a data-clipboard-text="https://paulgay.github.io/documentation_cytech_google_cloud_computing/docker/docker/#installation-des-drivers-nvidia" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Installation des drivers nvidia:" href="#installation-des-drivers-nvidia"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h3></div>
 <pre><code>sudo apt-get install ubuntu-drivers-common
 ubuntu-drivers devices
@@ -461,15 +462,19 @@ sudo apt-get update
 sudo systemctl restart docker
 </code></pre><p>Re-démarrez votre machine.</p>
 <div class="gdoc-page__anchorwrap"><h3 id="installation-de-limage-docker">Installation de l&rsquo;image docker<a data-clipboard-text="https://paulgay.github.io/documentation_cytech_google_cloud_computing/docker/docker/#installation-de-limage-docker" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Installation de l&rsquo;image docker" href="#installation-de-limage-docker"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h3></div>
-<p>Des fichiers docker sont disponibles sur le github de tensorflow:</p>
+<p>Des fichiers Dockerfile sont disponibles sur le github de tensorflow:</p>
 <pre><code>sudo apt update
 sudo apt install git
 git clone https://github.com/tensorflow/tensorflow.git
 cd tensorflow/tensorflow/tools/dockerfiles/
 sudo docker build -f ./dockerfiles/gpu-jupyter.Dockerfile -t tf .
-</code></pre><p>La dernière ligne est la commande qui construit votre image sous le nom de <code>tf</code>. Pour lancer le notebook</p>
+</code></pre><blockquote>
+<p>ces commandes doivent être exécutées depuis le repertoire <code>tensorflow/tools/dockerfiles</code> car elles supposent que certains fichiers (comme le fichier bashrc) sont disponibles dans le répertoire courant.</p>
+</blockquote>
+<p>La dernière ligne est la commande qui construit votre image sous le nom de <code>tf</code>. Pour lancer le notebook</p>
 <pre><code>sudo docker run -it --gpus all  --rm -v $(realpath ~/notebooks):/tf/notebooks -p 8888:8888 tf:latest
-</code></pre><p>À présent, votre jupyter est lancé sur le port 8888 et l&rsquo;adresse <code>localhost</code> de la VM.</p>
+</code></pre><p>À présent, votre jupyter est lancé sur le port 8888 et l&rsquo;adresse <code>localhost</code> de la VM.
+Le répertoire qui contient vos notebook est indiqué dans la commande. Dans cet exemple, il s&rsquo;agit de <code>~/notebooks</code>. Notez que l&rsquo;environnement docker n&rsquo;a pas accès aux autres répertoires de votre VM.</p>
 <p>Consultez <a href="../../manual_configuration/jupyter/">cette section</a> pour accéder au jupyter de votre VM.</p>
 <blockquote class="gdoc-hint info">
   <p>Vous pouvez aussi télécharger directement à partir de la commande <code>run</code>. L&rsquo;avantage de passer par le fichier <code>.Dockerfile</code> est que vous pouvez l&rsquo;adapter pour y ajouter d&rsquo;autres librairies dont vous pourriez avoir besoin.</p>
