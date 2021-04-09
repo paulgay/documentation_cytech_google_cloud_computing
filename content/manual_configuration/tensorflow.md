@@ -10,7 +10,7 @@ Commençons par la librairie Cuda qui permettra à Tensorflow d'utiliser le GPU.
 Clikez sur le bouton ssh afin d'ouvrir un terminal sur votre machine virtuelle. 
 
 Sélectionner un mode de téléchargement sur le site de [cuda](https://developer.nvidia.com/cuda-11.0-download-archive). 
-A l'heure actuelle, tensorflow a été compilé avec la version 11.0 de cuda. Nous choisirons donc cette version.
+A l'heure actuelle (février 2021), tensorflow a été compilé avec la version 11.0 de cuda. Nous choisirons donc cette version.
 
 <center>
 <img src="../../cuda.png" alt="drawing" width="900"/>
