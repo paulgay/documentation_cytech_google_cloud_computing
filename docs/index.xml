@@ -23,7 +23,7 @@ Vous pouvez cliquez sur le bouton ssh afin d&amp;rsquo;y ouvrir un terminal. La 
       <guid>https://paulgay.github.io/documentation_cytech_google_cloud_computing/manual_configuration/tensorflow/</guid>
       <description>Commençons par la librairie Cuda qui permettra à Tensorflow d&amp;rsquo;utiliser le GPU.
 installation de Cuda Clikez sur le bouton ssh afin d&amp;rsquo;ouvrir un terminal sur votre machine virtuelle.
-Sélectionner un mode de téléchargement sur le site de cuda. A l&amp;rsquo;heure actuelle, tensorflow a été compilé avec la version 11.0 de cuda. Nous choisirons donc cette version.
+Sélectionner un mode de téléchargement sur le site de cuda. A l&amp;rsquo;heure actuelle (février 2021), tensorflow a été compilé avec la version 11.0 de cuda. Nous choisirons donc cette version.
   Ensuite, exécutez les commandes suivantes:
 sudo apt udpate wget https://developer.download.nvidia.com/compute/cuda/repos/ubuntu2004/x86_64/cuda-ubuntu2004.pin sudo mv cuda-ubuntu2004.</description>
     </item>
