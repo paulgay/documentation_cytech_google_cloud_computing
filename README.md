@@ -2,7 +2,6 @@
 
 > La branche gh-pages contient la version à jour documentation qui est visible sur les pages du github.
 
-
 Ce repo contient une documentation sur l'utilisation des machines GCP à destination des étudiants de l'école Cy-tech
 
 Elle est écrite avec l'outil hugo et le theme geekdoc. 
