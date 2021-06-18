@@ -48,3 +48,12 @@ Pour copier MON_FICHIER de la machine locale vers la VM
 scp /chemin_local/vers/MON_FICHIER  login@address_ip_externe:/chemin/sur/la/VM
 ```
 
+### Autoriser les requêtes http sur votre site web
+
+En deux mots, il s'agit de pouvoir récupérer des fichiers situés sur votre machine virtuelle à partir d'une requette http (par exemple, en entrant une url dans votre navigateur).
+
+
+Pour cela, il est proposé d'utiliser nginx.
+```
+https://jkjung-avt.github.io/gcp-nginx-flask/
+```

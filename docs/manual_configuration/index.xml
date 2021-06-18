@@ -12,10 +12,7 @@
       
       <guid>https://paulgay.github.io/documentation_cytech_google_cloud_computing/manual_configuration/tensorflow/</guid>
       <description>Commençons par la librairie Cuda qui permettra à Tensorflow d&amp;rsquo;utiliser le GPU.
-installation de Cuda Clikez sur le bouton ssh afin d&amp;rsquo;ouvrir un terminal sur votre machine virtuelle.
-Sélectionner un mode de téléchargement sur le site de cuda. A l&amp;rsquo;heure actuelle (février 2021), tensorflow a été compilé avec la version 11.0 de cuda. Nous choisirons donc cette version.
-  Ensuite, exécutez les commandes suivantes:
-sudo apt udpate wget https://developer.download.nvidia.com/compute/cuda/repos/ubuntu2004/x86_64/cuda-ubuntu2004.pin sudo mv cuda-ubuntu2004.</description>
+Installation des drivers nvidia: sudo apt-get install ubuntu-drivers-common ubuntu-drivers devices == /sys/devices/pci0000:00/0000:00:04.0 == modalias : pci:v000010DEd0000102Dsv000010DEsd0000106Cbc03sc02i00 vendor : NVIDIA Corporation model : GK210GL [Tesla K80] driver : nvidia-driver-450-server - distro non-free driver : nvidia-driver-460 - distro non-free recommended driver : nvidia-driver-390 - distro non-free driver : nvidia-driver-418-server - distro non-free driver : nvidia-driver-450 - distro non-free driver : xserver-xorg-video-nouveau - distro free builtin  Nous installons la version recommandée (ici la 460):</description>
     </item>
     
     <item>

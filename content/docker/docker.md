@@ -8,36 +8,14 @@ Une image docker fournit un environnement pré-installé et fonctionnel. Le prin
 Étant donné l'usage actuel universel de docker, c'est probablement une bonne idée de prendre du temps pour effectuer cette installation.
 
 {{< hint info >}}
-Vous devez avoir au préablable [créé votre VM](../manual_configuration/vm_creation). 
+Vous devez avoir au préablable [créé votre VM](../../manual_configuration/vm_creation). 
 {{< /hint >}}
 
 
 Depuis votre VM [connectez-vous en ssh](../../utilisation/transfert_fichier) et installez [docker](https://docs.docker.com/engine/install/ubuntu/) sur votre VM
 
-L'installation consiste à ajouter les drivers nvidia, puis à télécharger un conteneur docker qui contiendra la librairie tensorflow avec les dépendances cuda.  
+L'installation consiste à ajouter [les drivers nvidia](../../manual_configuration/tensorflow/#installation-des-drivers-nvidia), puis à télécharger un conteneur docker qui contiendra la librairie tensorflow avec les dépendances cuda.  
 
-### Installation des drivers nvidia: 
-
-
-```
-sudo apt-get install ubuntu-drivers-common
-ubuntu-drivers devices
-```
-		== /sys/devices/pci0000:00/0000:00:04.0 ==
-		modalias : pci:v000010DEd0000102Dsv000010DEsd0000106Cbc03sc02i00
-		vendor   : NVIDIA Corporation
-		model    : GK210GL [Tesla K80]
-		driver   : nvidia-driver-450-server - distro non-free
-		driver   : nvidia-driver-460 - distro non-free recommended
-		driver   : nvidia-driver-390 - distro non-free
-		driver   : nvidia-driver-418-server - distro non-free
-		driver   : nvidia-driver-450 - distro non-free
-		driver   : xserver-xorg-video-nouveau - distro free builtin 
-
-Nous installons la version recommandée (ici la 460):
-```
-sudo apt install nvidia-driver-460
-```
 
 ### Installation du container nvidia
 Créer un fichier `nvidia-container-runtime-script.sh` avec le contenu suivant: 

@@ -5,6 +5,30 @@ weight: 1
 
 Commençons par la librairie Cuda qui permettra à Tensorflow d'utiliser le GPU. 
 
+> the following sections are inspired from the [official documentation](https://docs.nvidia.com/deeplearning/cudnn/install-guide/index.html)
+## Installation des drivers nvidia: 
+
+
+```
+sudo apt-get install ubuntu-drivers-common
+ubuntu-drivers devices
+```
+    == /sys/devices/pci0000:00/0000:00:04.0 ==
+    modalias : pci:v000010DEd0000102Dsv000010DEsd0000106Cbc03sc02i00
+    vendor   : NVIDIA Corporation
+    model    : GK210GL [Tesla K80]
+    driver   : nvidia-driver-450-server - distro non-free
+    driver   : nvidia-driver-460 - distro non-free recommended
+    driver   : nvidia-driver-390 - distro non-free
+    driver   : nvidia-driver-418-server - distro non-free
+    driver   : nvidia-driver-450 - distro non-free
+    driver   : xserver-xorg-video-nouveau - distro free builtin
+
+Nous installons la version recommandée (ici la 460):
+```
+sudo apt install nvidia-driver-460
+
+
 ## installation de Cuda
 
 Clikez sur le bouton ssh afin d'ouvrir un terminal sur votre machine virtuelle. 

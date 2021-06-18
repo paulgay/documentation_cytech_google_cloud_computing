@@ -426,28 +426,55 @@
 
 
 <p>Commençons par la librairie Cuda qui permettra à Tensorflow d&rsquo;utiliser le GPU.</p>
-<div class="gdoc-page__anchorwrap"><h2 id="installation-de-cuda">installation de Cuda<a data-clipboard-text="https://paulgay.github.io/documentation_cytech_google_cloud_computing/manual_configuration/tensorflow/#installation-de-cuda" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor installation de Cuda" href="#installation-de-cuda"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h2></div>
-<p>Clikez sur le bouton ssh afin d&rsquo;ouvrir un terminal sur votre machine virtuelle.</p>
-<p>Sélectionner un mode de téléchargement sur le site de <a href="https://developer.nvidia.com/cuda-11.0-download-archive">cuda</a>.
-A l&rsquo;heure actuelle (février 2021), tensorflow a été compilé avec la version 11.0 de cuda. Nous choisirons donc cette version.</p>
-<center>
-<img src="../../cuda.png" alt="drawing" width="900"/>
-</center>
-<p>Ensuite, exécutez les commandes suivantes:</p>
-<pre><code>sudo apt udpate
-wget https://developer.download.nvidia.com/compute/cuda/repos/ubuntu2004/x86_64/cuda-ubuntu2004.pin
+<div class="gdoc-page__anchorwrap"><h2 id="installation-des-drivers-nvidia">Installation des drivers nvidia:<a data-clipboard-text="https://paulgay.github.io/documentation_cytech_google_cloud_computing/manual_configuration/tensorflow/#installation-des-drivers-nvidia" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Installation des drivers nvidia:" href="#installation-des-drivers-nvidia"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h2></div>
+<pre><code>sudo apt-get install ubuntu-drivers-common
+ubuntu-drivers devices
+</code></pre><pre><code>== /sys/devices/pci0000:00/0000:00:04.0 ==
+modalias : pci:v000010DEd0000102Dsv000010DEsd0000106Cbc03sc02i00
+vendor   : NVIDIA Corporation
+model    : GK210GL [Tesla K80]
+driver   : nvidia-driver-450-server - distro non-free
+driver   : nvidia-driver-460 - distro non-free recommended
+driver   : nvidia-driver-390 - distro non-free
+driver   : nvidia-driver-418-server - distro non-free
+driver   : nvidia-driver-450 - distro non-free
+driver   : xserver-xorg-video-nouveau - distro free builtin
+</code></pre>
+<p>Nous installons la version recommandée (ici la 460):</p>
+<pre><code>sudo apt install nvidia-driver-460
+
+
+## installation de Cuda
+
+Clikez sur le bouton ssh afin d'ouvrir un terminal sur votre machine virtuelle. 
+
+Sélectionner un mode de téléchargement sur le site de [cuda](https://developer.nvidia.com/cuda-11.0-download-archive). 
+A l'heure actuelle (février 2021), tensorflow a été compilé avec la version 11.0 de cuda. Nous choisirons donc cette version.
+
+&lt;center&gt;
+&lt;img src=&quot;../../cuda.png&quot; alt=&quot;drawing&quot; width=&quot;900&quot;/&gt;
+&lt;/center&gt;
+
+
+Ensuite, exécutez les commandes suivantes: 
+
+</code></pre><p>sudo apt udpate
+wget <a href="https://developer.download.nvidia.com/compute/cuda/repos/ubuntu2004/x86_64/cuda-ubuntu2004.pin">https://developer.download.nvidia.com/compute/cuda/repos/ubuntu2004/x86_64/cuda-ubuntu2004.pin</a>
 sudo mv cuda-ubuntu2004.pin /etc/apt/preferences.d/cuda-repository-pin-600
-wget http://developer.download.nvidia.com/compute/cuda/11.0.2/local_installers/cuda-repo-ubuntu2004-11-0-local_11.0.2-450.51.05-1_amd64.deb
+wget <a href="http://developer.download.nvidia.com/compute/cuda/11.0.2/local_installers/cuda-repo-ubuntu2004-11-0-local_11.0.2-450.51.05-1_amd64.deb">http://developer.download.nvidia.com/compute/cuda/11.0.2/local_installers/cuda-repo-ubuntu2004-11-0-local_11.0.2-450.51.05-1_amd64.deb</a>
 sudo dpkg -i cuda-repo-ubuntu2004-11-0-local_11.0.2-450.51.05-1_amd64.deb
 sudo apt-key add /var/cuda-repo-ubuntu2004-11-0-local/7fa2af80.pub
 sudo apt-get update
-sudo apt-get -y install cuda
-</code></pre><p>Ajoutez les lignes suivantes dans le fichier <code>~/.bashrc</code></p>
-<pre><code>export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/cuda/lib64
-export PATH=$PATH:/usr/local/cuda/bin/
-</code></pre><p>Puis exécutez la commande suivante:</p>
-<div class="highlight"><pre class="chroma"><code class="language-Shell" data-lang="Shell"><span class="nb">source</span> .bashrc
-</code></pre></div><p>Ensuite, installez <a href="https://developer.nvidia.com/rdp/cudnn-archive">cudnn</a>. Il vous sera demandé de créer un compte. Vous pourrez ensuite télécharger les fichiers <code>.deb</code> et utiliser la commande <code>dpkg</code> pour les installer.</p>
+sudo apt-get -y install cuda</p>
+<pre><code>
+Ajoutez les lignes suivantes dans le fichier `~/.bashrc`
+</code></pre><p>export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/cuda/lib64
+export PATH=$PATH:/usr/local/cuda/bin/</p>
+<pre><code>
+Puis exécutez la commande suivante: 
+```Shell
+source .bashrc
+</code></pre><p>Ensuite, installez <a href="https://developer.nvidia.com/rdp/cudnn-archive">cudnn</a>. Il vous sera demandé de créer un compte. Vous pourrez ensuite télécharger les fichiers <code>.deb</code> et utiliser la commande <code>dpkg</code> pour les installer.</p>
 <pre><code>sudo dpkg -i libcudnn8_8.0.5.39-1+cuda11.0_amd64.deb
 sudo dpkg -i libcudnn8-dev_8.0.5.39-1+cuda11.0_amd64.deb
 </code></pre><p>Pour vérifier que l&rsquo;installation a fonctionné, nous pouvons tester la commande <code>nvidia-smi</code>:</p>

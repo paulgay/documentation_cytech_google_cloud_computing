@@ -428,28 +428,12 @@
 <p>Une image docker fournit un environnement pré-installé et fonctionnel. Le principe général se situe entre la machine virtuelle et l&rsquo;environnement virtuel.</p>
 <p>Étant donné l&rsquo;usage actuel universel de docker, c&rsquo;est probablement une bonne idée de prendre du temps pour effectuer cette installation.</p>
 <blockquote class="gdoc-hint info">
-  Vous devez avoir au préablable <a href="../manual_configuration/vm_creation">créé votre VM</a>.
+  Vous devez avoir au préablable <a href="../../manual_configuration/vm_creation">créé votre VM</a>.
 </blockquote>
 
 <p>Depuis votre VM <a href="../../utilisation/transfert_fichier">connectez-vous en ssh</a> et installez <a href="https://docs.docker.com/engine/install/ubuntu/">docker</a> sur votre VM</p>
-<p>L&rsquo;installation consiste à ajouter les drivers nvidia, puis à télécharger un conteneur docker qui contiendra la librairie tensorflow avec les dépendances cuda.</p>
-<div class="gdoc-page__anchorwrap"><h3 id="installation-des-drivers-nvidia">Installation des drivers nvidia:<a data-clipboard-text="https://paulgay.github.io/documentation_cytech_google_cloud_computing/docker/docker/#installation-des-drivers-nvidia" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Installation des drivers nvidia:" href="#installation-des-drivers-nvidia"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h3></div>
-<pre><code>sudo apt-get install ubuntu-drivers-common
-ubuntu-drivers devices
-</code></pre><pre><code>    == /sys/devices/pci0000:00/0000:00:04.0 ==
-    modalias : pci:v000010DEd0000102Dsv000010DEsd0000106Cbc03sc02i00
-    vendor   : NVIDIA Corporation
-    model    : GK210GL [Tesla K80]
-    driver   : nvidia-driver-450-server - distro non-free
-    driver   : nvidia-driver-460 - distro non-free recommended
-    driver   : nvidia-driver-390 - distro non-free
-    driver   : nvidia-driver-418-server - distro non-free
-    driver   : nvidia-driver-450 - distro non-free
-    driver   : xserver-xorg-video-nouveau - distro free builtin 
-</code></pre>
-<p>Nous installons la version recommandée (ici la 460):</p>
-<pre><code>sudo apt install nvidia-driver-460
-</code></pre><div class="gdoc-page__anchorwrap"><h3 id="installation-du-container-nvidia">Installation du container nvidia<a data-clipboard-text="https://paulgay.github.io/documentation_cytech_google_cloud_computing/docker/docker/#installation-du-container-nvidia" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Installation du container nvidia" href="#installation-du-container-nvidia"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h3></div>
+<p>L&rsquo;installation consiste à ajouter <a href="../../manual_configuration/tensorflow/#installation-des-drivers-nvidia">les drivers nvidia</a>, puis à télécharger un conteneur docker qui contiendra la librairie tensorflow avec les dépendances cuda.</p>
+<div class="gdoc-page__anchorwrap"><h3 id="installation-du-container-nvidia">Installation du container nvidia<a data-clipboard-text="https://paulgay.github.io/documentation_cytech_google_cloud_computing/docker/docker/#installation-du-container-nvidia" class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Installation du container nvidia" href="#installation-du-container-nvidia"><svg class="icon link"><use xlink:href="#link"></use></svg></a></h3></div>
 <p>Créer un fichier <code>nvidia-container-runtime-script.sh</code> avec le contenu suivant:</p>
 <pre><code>curl -s -L https://nvidia.github.io/nvidia-container-runtime/gpgkey | \
   sudo apt-key add -
