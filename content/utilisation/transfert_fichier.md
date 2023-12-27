@@ -1,13 +1,13 @@
 ---
 title: Connection ssh et transfert de fichiers 
-weight: 1
+weight: 2
 ---
 ## Connection en ssh par le site google cloud
 
 Le tableau de bord vous donne l'adresse ip actuelle de votre VM. Notez que cette adresse changera à chaque démarrage à moins que ne vous ne la configuriez statique.
 
 Vous pouvez cliquez sur le bouton ssh afin d'y ouvrir un terminal. 
-<img src="../..//ssh.png" width="900"/>
+<img src="../../ssh.png" width="500"/>
 
 
 La section suivante détaille comment lancer vos propres commandes ssh depuis votre machine locale (ou comme il est écrit sur le site de gcp, depuis un outil tiers). C'est parfois nécessaire, par exemple pour créer des tunnels afin de copier des fichiers ou d'accéder au serveur jupyter. 

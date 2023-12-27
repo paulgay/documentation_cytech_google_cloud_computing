@@ -14,7 +14,11 @@ Vous devez avoir au préablable [créé votre VM](../../manual_configuration/vm_
 
 Depuis votre VM [connectez-vous en ssh](../../utilisation/transfert_fichier) et installez [docker](https://docs.docker.com/engine/install/ubuntu/) sur votre VM
 
-L'installation consiste à ajouter [les drivers nvidia](../../manual_configuration/tensorflow/#installation-des-drivers-nvidia), puis à télécharger un conteneur docker qui contiendra la librairie tensorflow avec les dépendances cuda.  
+L'installation consiste à ajouter [les drivers nvidia](../../manual_configuration/tensorflow/#installation-des-drivers-nvidia), puis à télécharger un conteneur docker qui contiendra la librairie tensorflow avec les dépendances cuda. Si vous avez l'image 
+
+##
+
+https://www.tensorflow.org/install
 
 
 ### Installation du container nvidia
