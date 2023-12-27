@@ -37,22 +37,48 @@ Dans la sélection de l'OS, cliquer sur _changer d'image_ et prendre
 laisser les autres paramètres par défaut et cliquer sur créer
 
 
-
-
 {{< hint info >}}
 Reportez-vous à [Augmenter les quotas](../../troubleshooting#problème-de-quotas) si vous rencontrez le message d'erreur
 "... does not have enough resources available to fulfill the request. Try a different zone, or try again later. "
 {{< /hint >}}
 
 
-## Installation des drivers nvidia (Debian):
+## Installation des drivers nvidia
+
 
 > Il est plus simple d'éviter cette étape avec une machine pré-configuré en sélectionnant l'image _Deep Learning VM with CUDA 11.8 M114_
 
-
 Que ce soit docker ou une installation manuelle, il faut installer les drivers nvidia. 
 
-Notre image est une debian, 
+
+> Une fois l'installation effectuée, n'oubliez pas de redémarrer la VM!
+sudo shutdown -r
+
+Ensuite, vous pouvez tester si le gpu est détecté par le driver avec la commande
+
+```
+nvidia-smi
+```
+
+### Installation des drivers nvidia (Debian):
+
+
+
+
+Pour Debian, [la documentation est ici](https://wiki.debian.org/NvidiaGraphicsDrivers)
+
+```
+Add "contrib", "non-free" and "non-free-firmware" components to /etc/apt/sources.list, for example:
+
+# Debian Sid
+deb http://deb.debian.org/debian/ sid main contrib non-free non-free-firmware
+```
+
+Puis lancez les commandes :
+```
+apt update
+apt install nvidia-driver firmware-misc-nonfree
+```
 
 
 Gardez les options par défaut lors de l'installation
@@ -62,9 +88,11 @@ Restart without asking
 
 Keep the local version currently installed
 
+
 > N'oubliez pas de redémarrer la VM!
 sudo shutdown -r
 
+### Installation des drivers nvidia (Ubuntu):
 
 ```
 sudo apt-get install ubuntu-drivers-common
@@ -84,4 +112,7 @@ ubuntu-drivers devices
 Nous installons la version recommandée (ici la 460):
 ```
 sudo apt install nvidia-driver-460
+```
 
+> N'oubliez pas de redémarrer la VM!
+sudo shutdown -r
