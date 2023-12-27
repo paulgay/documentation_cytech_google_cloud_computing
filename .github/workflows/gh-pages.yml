@@ -27,7 +27,7 @@ jobs:
         uses: paulgay/documentation_cytech_google_cloud_computing
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./public
+          publish_dir: ./docs
 
 - name: Setup Hugo
   uses: paulgay/actions-hugo@latest
