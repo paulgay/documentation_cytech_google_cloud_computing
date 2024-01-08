@@ -3,17 +3,15 @@ title: Installation de tensorflow
 weight: 1
 ---
 
-Supposons que [votre VM est créée avec les driver nvidia](../../vm_creation/vm_creation/)
-
-Si vous avez utilisez l'image (recommandé) vous pouvez directement [installer tensorflow](../../manual_configuration/tensorflow/#installation-tensorflow)
+Supposons que [votre VM est créée avec les driver nvidia installés](../../vm_creation/vm_creation/)
 
 ## installation de Cuda (doc de 2021 non révisée)
 
-Commençons par la librairie Cuda qui permettra à Tensorflow d'utiliser le GPU. 
+> NOTE : si comme conseillé dans la section précédente, vous avez sélectionné l'image _Deep Learning VM with CUDA 11.8 M114_ , vous pouvez ignorez cette étape, cuda est déjà installée. Vous pouvez directement [installer tensorflow](../../manual_configuration/tensorflow/#installation-tensorflow).
 
-> the following sections are inspired from the [official documentation](https://docs.nvidia.com/deeplearning/cudnn/install-guide/index.html)
+Commençons par la [librairie Cuda](https://docs.nvidia.com/deeplearning/cudnn/install-guide/index.html) qui permettra à Tensorflow d'utiliser le GPU. 
 
-Clikez sur le bouton ssh afin d'ouvrir un terminal sur votre machine virtuelle. 
+Cliquez sur le bouton ssh afin d'ouvrir un terminal sur votre machine virtuelle. 
 
 Sélectionner un mode de téléchargement sur le site de [cuda](https://developer.nvidia.com/cuda-11.0-download-archive). 
 A l'heure actuelle (février 2021), tensorflow a été compilé avec la version 11.0 de cuda. Nous choisirons donc cette version.

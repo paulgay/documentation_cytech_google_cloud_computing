@@ -6,8 +6,6 @@ Dans cette partie, nous allons installer une machine google cloud
 
 ## Créer l'instance du serveur Google Cloud
 
-## Création de la VM
-
 * Aller à _Compute engine => instance VM => Créer une instance_
 
 * Sélectionner la région _Région : northamerica-northeast1-c_  Notez que les GPUs ne sont pas toujours disponibles partout. Malheureusement, GCP ne propose pas de zone valide automatiquement, essayez-en jusqu'à ce que ça marche.
@@ -44,12 +42,12 @@ Vous avez donc créer votre VM,
 
 Le bouton avec les 3 points à droite permet de la démarrer, de l'arrêter et de la re-démarrer. 
 
-Le bouton connecter vous permet d'y accéder par ssh depuis votre navigateur. Une fois le terminal ouvert, vous pouvez noter votre login dans le prompt. Apparemment, il correspond à la première partie du compte gmail que vous utiliser pour vous connecter.
+Le bouton connecter vous permet d'y accéder par ssh depuis votre navigateur. Apparemment, votre login gcp, (que vous apercevez sur le prompt du terminal) correspond à la première partie du compte gmail que vous utiliser pour vous connecter.
 
 ## Installation des drivers nvidia
 
 
-> Il est plus simple d'éviter cette étape avec une machine pré-configuré en sélectionnant l'image _Deep Learning VM with CUDA 11.8 M114_
+> NOTE : si comme conseillé dans la section précédente, vous avez sélectionné l'image _Deep Learning VM with CUDA 11.8 M114_ , vous pouvez ignorez cette étape, les drivers nvidia sont déjà installés. Testez avec la commande `nvidia-smi`
 
 Que ce soit docker ou une installation manuelle, il faut installer les drivers nvidia. 
 
@@ -121,7 +119,7 @@ sudo apt install nvidia-driver-460
 sudo shutdown -r
 
 
-### test nvidia drivers
+## Test nvidia drivers
 
 Pour vérifier que l'installation a fonctionné, nous pouvons tester la commande `nvidia-smi`:
 ```

@@ -34,7 +34,7 @@ http://127.0.0.1:8888/tree
 ```
 
 
-## Jupyter noteboook option2 : configuration des pare-feu et addresse IP statique
+## Jupyter noteboook option2 : configuration des pare-feu et addresse IP statique (non testé en 2023)
 
 ## Configuration des firewalls pour Jupyter
 
