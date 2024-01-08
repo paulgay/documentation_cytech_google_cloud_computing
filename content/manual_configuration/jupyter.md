@@ -21,8 +21,6 @@ Depuis la VM, lancez votre jupyter (si vous ne l'avez pas déjà fait par le bia
 jupyter-notebook --no-browser --port=8888
 ```
     ...
-    To access the notebook, open this file in a browser:
-        file:///home/pandregay/.local/share/jupyter/runtime/nbserver-18405-open.html
     Or copy and paste one of these URLs:
         http://localhost:8888/?token=2703d92e3badf239641b349d2f5c4e9828cf3968f3c0926c
 
@@ -30,13 +28,17 @@ Copiez l'adresse affichée par la commande dans votre navigateur en incluant le 
 ```
 http://localhost:8888/?token=2703d92e3badf239641b349d2f5c4e9828cf3968f3c0926c
 ```
+si vous avez une page vide "a jupyter server is running", ajoutez `/tree` à l'url du navigateur pour avoir
+```
+http://127.0.0.1:8888/tree
+```
 
 
 ## Jupyter noteboook option2 : configuration des pare-feu et addresse IP statique
 
 ## Configuration des firewalls pour Jupyter
 
-Sur le site de Google Cloud platform, allez dans [Réseaux VPC, ](https://console.cloud.google.com/networking/networks/)
+Sur le site de Google Cloud platform, allez dans [Réseaux VPC](https://console.cloud.google.com/networking/networks/)
 
 
 ### Créer une IP externe
@@ -68,10 +70,6 @@ Dans [pare-feu](https://console.cloud.google.com/networking/firewalls) 
 
 Accéder au Jupyter :
 
-* copier l'adresse à partir de "?token=....."
-* Ajouter devant le "?" l'adresse externe de votre VM (dans instance VM) et :8889.n
-
-
 L'url que vous entrez dans le navigateur doit avoir la forme : `http://adresse_ip_externe:8889/?token=votre_token`
 
-
+* `votre_token`, correspond à la chaine de caractère dans l'adresse à partir de "?token=....."

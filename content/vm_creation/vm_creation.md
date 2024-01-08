@@ -8,13 +8,7 @@ Dans cette partie, nous allons installer une machine google cloud
 
 ## Création de la VM
 
-<img src="../../instance.png" width="900"/>
-
-
-
 * Aller à _Compute engine => instance VM => Créer une instance_
-
-
 
 * Sélectionner la région _Région : northamerica-northeast1-c_  Notez que les GPUs ne sont pas toujours disponibles partout. Malheureusement, GCP ne propose pas de zone valide automatiquement, essayez-en jusqu'à ce que ça marche.
 
@@ -31,7 +25,7 @@ sélectionner _GPU_ avec la configuration suivante
 
 Dans la sélection de l'OS, cliquer sur _changer d'image_ et prendre  (une image avec les driver nvidia installés par défaut)
  * Deep Learning VM with CUDA 11.8 M114
-
+ * Indiquer 400Go de mémoire pour le disque dur.
 
 
 laisser les autres paramètres par défaut et cliquer sur créer
@@ -125,3 +119,35 @@ sudo apt install nvidia-driver-460
 
 > N'oubliez pas de redémarrer la VM!
 sudo shutdown -r
+
+
+### test nvidia drivers
+
+Pour vérifier que l'installation a fonctionné, nous pouvons tester la commande `nvidia-smi`:
+```
+$ nvidia-smi
+
+
+Wed Feb  3 10:20:31 2021
++-----------------------------------------------------------------------------+
+| NVIDIA-SMI 460.32.03    Driver Version: 460.32.03    CUDA Version: 11.2     |
+|-------------------------------+----------------------+----------------------+
+| GPU  Name        Persistence-M| Bus-Id        Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp  Perf  Pwr:Usage/Cap|         Memory-Usage | GPU-Util  Compute M. |
+|                               |                      |               MIG M. |
+|===============================+======================+======================|
+|   0  Tesla K80           Off  | 00000000:00:04.0 Off |                    0 |
+| N/A   71C    P8    35W / 149W |     13MiB / 11441MiB |      0%      Default |
+|                               |                      |                  N/A |
++-------------------------------+----------------------+----------------------+
+
++-----------------------------------------------------------------------------+
+| Processes:                                                                  |
+|  GPU   GI   CI        PID   Type   Process name                  GPU Memory |
+|        ID   ID                                                   Usage      |
+|=============================================================================|
+|    0   N/A  N/A       937      G   /usr/lib/xorg/Xorg                  8MiB |
+|    0   N/A  N/A      1081      G   /usr/bin/gnome-shell                3MiB |
++-----------------------------------------------------------------------------+
+```
+

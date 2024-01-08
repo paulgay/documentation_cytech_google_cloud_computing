@@ -3,33 +3,15 @@ title: Installation de tensorflow
 weight: 1
 ---
 
+Supposons que [votre VM est créée avec les driver nvidia](../../vm_creation/vm_creation/)
+
+Si vous avez utilisez l'image (recommandé) vous pouvez directement [installer tensorflow](../../manual_configuration/tensorflow/#installation-tensorflow)
+
+## installation de Cuda (doc de 2021 non révisée)
+
 Commençons par la librairie Cuda qui permettra à Tensorflow d'utiliser le GPU. 
 
 > the following sections are inspired from the [official documentation](https://docs.nvidia.com/deeplearning/cudnn/install-guide/index.html)
-## Installation des drivers nvidia: 
-
-
-```
-sudo apt-get install ubuntu-drivers-common
-ubuntu-drivers devices
-```
-    == /sys/devices/pci0000:00/0000:00:04.0 ==
-    modalias : pci:v000010DEd0000102Dsv000010DEsd0000106Cbc03sc02i00
-    vendor   : NVIDIA Corporation
-    model    : GK210GL [Tesla K80]
-    driver   : nvidia-driver-450-server - distro non-free
-    driver   : nvidia-driver-460 - distro non-free recommended
-    driver   : nvidia-driver-390 - distro non-free
-    driver   : nvidia-driver-418-server - distro non-free
-    driver   : nvidia-driver-450 - distro non-free
-    driver   : xserver-xorg-video-nouveau - distro free builtin
-
-Nous installons la version recommandée (ici la 460):
-```
-sudo apt install nvidia-driver-460
-
-
-## installation de Cuda
 
 Clikez sur le bouton ssh afin d'ouvrir un terminal sur votre machine virtuelle. 
 
@@ -71,37 +53,6 @@ sudo dpkg -i libcudnn8_8.0.5.39-1+cuda11.0_amd64.deb
 sudo dpkg -i libcudnn8-dev_8.0.5.39-1+cuda11.0_amd64.deb
 ```
 
-
-Pour vérifier que l'installation a fonctionné, nous pouvons tester la commande `nvidia-smi`: 
-```
-$ nvidia-smi
-
-
-Wed Feb  3 10:20:31 2021       
-+-----------------------------------------------------------------------------+
-| NVIDIA-SMI 460.32.03    Driver Version: 460.32.03    CUDA Version: 11.2     |
-|-------------------------------+----------------------+----------------------+
-| GPU  Name        Persistence-M| Bus-Id        Disp.A | Volatile Uncorr. ECC |
-| Fan  Temp  Perf  Pwr:Usage/Cap|         Memory-Usage | GPU-Util  Compute M. |
-|                               |                      |               MIG M. |
-|===============================+======================+======================|
-|   0  Tesla K80           Off  | 00000000:00:04.0 Off |                    0 |
-| N/A   71C    P8    35W / 149W |     13MiB / 11441MiB |      0%      Default |
-|                               |                      |                  N/A |
-+-------------------------------+----------------------+----------------------+
-                                                                               
-+-----------------------------------------------------------------------------+
-| Processes:                                                                  |
-|  GPU   GI   CI        PID   Type   Process name                  GPU Memory |
-|        ID   ID                                                   Usage      |
-|=============================================================================|
-|    0   N/A  N/A       937      G   /usr/lib/xorg/Xorg                  8MiB |
-|    0   N/A  N/A      1081      G   /usr/bin/gnome-shell                3MiB |
-+-----------------------------------------------------------------------------+
-```
-
-Une information intéressante est la quantité de mémoire occupée `12MiB / 11441MiB`. Cette information est utile lorsque nous entraînons nos modèles et pour vérifier si notre gpu est utilisé ou pas. 
-
 ## Environnement Anaconda 
 
 * Récupérez l'installeur d'Anaconda sur la [page des téléchargements](https://www.anaconda.com/products/individual). 
@@ -120,14 +71,16 @@ by running conda init? [yes|no]
 ```
 * Redémarrez votre shell ou rechargez votre fichier avec `source ~/.bashrc`
 
+## Installation Tensorflow
+
 * Installez tensorflow depuis votre environnement conda
 ```bash
-(base) pandregay@instance-1:~$ pip install tensorflow
+(base) pandregay@instance-1:~$ pip install tensorflow[and-cuda] 
 ```
 * Testez que tensorflow a accès à votre gpu: 
 ```python
 import tensorflow as tf
-physical_devices = tf.config.list_physical_devices('GPU')
+print(tf.config.list_physical_devices('GPU'))
 ```
 
     [PhysicalDevice(name='/physical_device:GPU:0', device_type='GPU')]
