@@ -2,7 +2,7 @@
 title: Création de la VM 
 weigth: 0
 ---
-Dans cette partie, nous allons installé une machine google cloud 
+Dans cette partie, nous allons installer une machine google cloud 
 
 ## Créer l'instance du serveur Google Cloud
 
@@ -12,12 +12,11 @@ Dans cette partie, nous allons installé une machine google cloud
 
 
 
-
 * Aller à _Compute engine => instance VM => Créer une instance_
 
 
 
-* then select region _Région : northamerica-northeast1-c_  Notez que les GPUs ne sont pas toujours disponibles partout. Malheureusement, GCP ne propose pas de zone automatiquement.
+* Sélectionner la région _Région : northamerica-northeast1-c_  Notez que les GPUs ne sont pas toujours disponibles partout. Malheureusement, GCP ne propose pas de zone valide automatiquement, essayez-en jusqu'à ce que ça marche.
 
 Dans la rubrique *Configuration de la machine*
 
@@ -30,8 +29,9 @@ sélectionner _GPU_ avec la configuration suivante
 * Type de machine : PRÉDÉFINI avec 8vCPU, 30 Go
 
 
-Dans la sélection de l'OS, cliquer sur _changer d'image_ et prendre 
+Dans la sélection de l'OS, cliquer sur _changer d'image_ et prendre  (une image avec les driver nvidia installés par défaut)
  * Deep Learning VM with CUDA 11.8 M114
+
 
 
 laisser les autres paramètres par défaut et cliquer sur créer
@@ -42,6 +42,15 @@ Reportez-vous à [Augmenter les quotas](../../troubleshooting#problème-de-quota
 "... does not have enough resources available to fulfill the request. Try a different zone, or try again later. "
 {{< /hint >}}
 
+## Test de la VM
+
+Vous avez donc créer votre VM, 
+
+<img src="../../main_screen.png" width="900"/>
+
+Le bouton avec les 3 points à droite permet de la démarrer, de l'arrêter et de la re-démarrer. 
+
+Le bouton connecter vous permet d'y accéder par ssh depuis votre navigateur. Une fois le terminal ouvert, vous pouvez noter votre login dans le prompt. Apparemment, il correspond à la première partie du compte gmail que vous utiliser pour vous connecter.
 
 ## Installation des drivers nvidia
 

@@ -1,3 +1,7 @@
+Cette documentation a pour but de faciliter votre configuration de [GCP](https://console.cloud.google.com/). 
+
+> Vous avez reçu 50 dollars et vous payez à l'heure : pensez à éteindre votre instance quand vous ne l'utilisez pas ! 
+
 Vous avez différentes possibilités pour utiliser tensorflow sur votre machine virtuelle : 
 
 * **Configuration manuelle:** Installation manuelle de toutes les librairies (drivers nvidia, librairies cuda, environnement anaconda, etc)
