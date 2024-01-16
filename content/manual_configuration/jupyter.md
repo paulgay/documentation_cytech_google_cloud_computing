@@ -13,7 +13,6 @@ Ouvrez un tunnel ssh connectant votre machine au localhost de votre VM.
 ```
 ssh -X -L 8888:localhost:8888 pandregay@adresse_ip_externe
 ```
-Notez que le numéro du port doit correspondre à celui sur lequel votre Jupyter tourne.
 
 Depuis la VM, lancez votre jupyter (si vous ne l'avez pas déjà fait par le biais de votre image docker):
 

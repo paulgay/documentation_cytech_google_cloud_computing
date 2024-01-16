@@ -5,9 +5,10 @@ weight: 1
 
 Supposons que [votre VM est créée avec les driver nvidia installés](../../vm_creation/vm_creation/)
 
+> NOTE : si comme conseillé dans la section précédente, vous avez sélectionné l'image _Deep Learning VM with CUDA 11.8 M114_ , vous pouvez ignorez l'installation de cuda (déjà fait),et directement [installer tensorflow](../../manual_configuration/tensorflow/#installation-tensorflow).
+
 ## installation de Cuda (doc de 2021 non révisée)
 
-> NOTE : si comme conseillé dans la section précédente, vous avez sélectionné l'image _Deep Learning VM with CUDA 11.8 M114_ , vous pouvez ignorez cette étape, cuda est déjà installée. Vous pouvez directement [installer tensorflow](../../manual_configuration/tensorflow/#installation-tensorflow).
 
 Commençons par la [librairie Cuda](https://docs.nvidia.com/deeplearning/cudnn/install-guide/index.html) qui permettra à Tensorflow d'utiliser le GPU. 
 
