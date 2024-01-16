@@ -8,7 +8,7 @@ Dans cette partie, nous allons installer une machine google cloud
 
 * Aller à _Compute engine => instance VM => Créer une instance_
 
-* Sélectionner la région _Région : northamerica-northeast1-c_  Notez que les GPUs ne sont pas toujours disponibles partout. Malheureusement, GCP ne propose pas de zone valide automatiquement, essayez-en jusqu'à ce que ça marche.
+* Sélectionner la région _Région : northamerica-northeast1-c_  Notez que les GPUs ne sont pas toujours disponibles partout. Malheureusement, GCP ne propose pas de zone valide automatiquement, essayez-en jusqu'à ce que ça marche. [Changer la zone d'une machine virtuelle](https://cloud.google.com/compute/docs/instances/moving-instance-across-zones?hl=fr) ne semble pas très pratique.
 
 Dans la rubrique *Configuration de la machine*
 
