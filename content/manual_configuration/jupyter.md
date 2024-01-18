@@ -9,7 +9,7 @@ Vous pouvez au choix configurez l'adresse IP et les parefeux de votre VM ou utli
 
 > Pré-requis : [ajouter sa clé publique](../../utilisation/transfert_fichier/#connection-en-ssh-depuis-votre-machine-locale) à la VM pour pourvoir s'y connecter en ssh depuis votre machine locale. 
 
-Ouvrez un tunnel ssh connectant votre machine au localhost de votre VM.
+Ouvrez un tunnel ssh connectant votre machine au localhost de votre VM, en lançant la commande suivante **depuis votre machine personnelle**.
 ```
 ssh -X -L 8888:localhost:8888 pandregay@adresse_ip_externe
 ```
