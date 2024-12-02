@@ -2,7 +2,7 @@
 
 Ce repo contient une documentation sur l'utilisation des machines GCP à destination des étudiants de l'école Cy-tech
 
-**It has been written at the beginning of 2021 and not updated since**
+**It has been written at the beginning of 2021 and only partially updated since**
 
 Elle est écrite avec l'outil hugo et le theme geekdoc. 
 
