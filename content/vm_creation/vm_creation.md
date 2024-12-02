@@ -4,6 +4,9 @@ weigth: 0
 ---
 Dans cette partie, nous allons installer une machine google cloud 
 
+
+Vous devez d'abord créer un projet.
+
 ## Créer l'instance du serveur Google Cloud
 
 * Aller à _Compute engine => instance VM => Créer une instance_
@@ -21,9 +24,13 @@ sélectionner _GPU_ avec la configuration suivante
 * Type de machine : PRÉDÉFINI avec 8vCPU, 30 Go
 
 
-Dans la sélection de l'OS, cliquer sur _changer d'image_ et prendre  (une image avec les driver nvidia installés par défaut)
- * Deep Learning VM with CUDA 11.8 M114
+Dans la sélection de l'OS,  il est indiqué : 
+
+_The selected image requires you to install an NVIDIA CUDA stack manually. To skip manual setup, click "Switch Image" below to use a GPU-optimized Debian OS image with CUDA support at no additional cost._ 
+cliquer sur _changer d'image_ ou (_switch image_) et prendre  (une image avec les driver nvidia installés par défaut)
+ * Deep Learning VM with CUDA 11.8 
  * Indiquer 400Go de mémoire pour le disque dur.
+
 
 
 laisser les autres paramètres par défaut et cliquer sur créer
